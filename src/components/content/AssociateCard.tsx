@@ -1,0 +1,66 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import type { Associate } from "@/lib/site";
+import { MaterialIcon } from "@/components/ui/MaterialIcon";
+
+type AssociateCardProps = {
+  associate: Associate;
+};
+
+export function AssociateCard({ associate }: AssociateCardProps) {
+  const [photoReady, setPhotoReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(associate.imageSrc, { method: "HEAD" })
+      .then((res) => {
+        if (!cancelled && res.ok) setPhotoReady(true);
+      })
+      .catch(() => {
+        if (!cancelled) setPhotoReady(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [associate.imageSrc]);
+
+  return (
+    <article className="flex flex-col overflow-hidden rounded border border-outline-variant/40 bg-surface-container-lowest">
+      <div className="relative aspect-[3/4] w-full bg-surface-container">
+        {photoReady ? (
+          <Image
+            src={associate.imageSrc}
+            alt={associate.imageAlt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 280px"
+            onError={() => setPhotoReady(false)}
+          />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center">
+            <MaterialIcon name="person" className="text-4xl text-outline" />
+            <span className="type-label-sm uppercase tracking-wider text-on-surface-variant">
+              Photo placeholder
+            </span>
+            <span className="max-w-[12rem] break-all type-body-sm text-outline">
+              Replace at {associate.imageSrc}
+            </span>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-1 flex-col gap-1 p-5">
+        <h3 className="type-headline-sm text-primary">{associate.name}</h3>
+        <p className="type-label-sm uppercase tracking-widest text-secondary">
+          {associate.designation}
+        </p>
+        {associate.spellingNote && (
+          <p className="mt-2 type-body-sm text-on-surface-variant">
+            [CONFIRM: {associate.spellingNote}]
+          </p>
+        )}
+      </div>
+    </article>
+  );
+}

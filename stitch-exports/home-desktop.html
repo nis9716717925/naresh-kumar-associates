@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Home — Advocate Legal Practice</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Public+Sans:wght@500;600;700&amp;family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#281903",
+            "on-primary-fixed": "#0d1b37",
+            "primary-container": "#1a2744",
+            "surface-bright": "#fbf9f6",
+            "secondary-fixed": "#fcdeba",
+            "surface-dim": "#dbdad7",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f5f3f0",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#dfc29f",
+            "on-error": "#ffffff",
+            "surface-tint": "#515e7e",
+            "outline-variant": "#c5c6ce",
+            "inverse-primary": "#b9c6eb",
+            "on-background": "#1b1c1a",
+            "surface-container-high": "#eae8e5",
+            "on-tertiary-fixed": "#111c2c",
+            "on-surface-variant": "#45464d",
+            "on-secondary": "#ffffff",
+            "surface-container": "#efeeeb",
+            "on-tertiary-fixed-variant": "#3c475a",
+            "tertiary-fixed": "#d8e3fa",
+            "tertiary": "#081324",
+            "secondary-container": "#f9dbb7",
+            "primary-fixed-dim": "#b9c6eb",
+            "on-primary-fixed-variant": "#3a4665",
+            "primary-fixed": "#d9e2ff",
+            "outline": "#75777e",
+            "surface-container-highest": "#e4e2df",
+            "tertiary-fixed-dim": "#bcc7dd",
+            "surface-variant": "#e4e2df",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#f2f0ed",
+            "on-tertiary-container": "#848fa4",
+            "on-primary": "#ffffff",
+            "tertiary-container": "#1d2839",
+            "primary": "#04122e",
+            "background": "#fbf9f6",
+            "on-primary-container": "#828eb1",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#755f42",
+            "surface": "#fbf9f6",
+            "secondary": "#715b3e",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#30312f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xl": "3rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Libre Caslon Text", "serif"],
+            "body-md": ["\"Source Sans 3\"", "sans-serif"],
+            "body-sm": ["\"Source Sans 3\"", "sans-serif"],
+            "headline-lg-mobile": ["Libre Caslon Text", "serif"],
+            "headline-sm": ["Libre Caslon Text", "serif"],
+            "body-lg": ["\"Source Sans 3\"", "sans-serif"],
+            "headline-lg": ["Libre Caslon Text", "serif"],
+            "label-sm": ["Public Sans", "sans-serif"],
+            "label-md": ["Public Sans", "sans-serif"],
+            "headline-xl-mobile": ["Libre Caslon Text", "serif"],
+            "headline-xl": ["Libre Caslon Text", "serif"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary/20 selection:text-primary font-body-md text-body-md">
+<!-- TOP STATUTORY COMPLIANCE BAR -->
+<aside class="w-full bg-primary text-surface-container-highest border-b border-outline/20 py-2 px-6">
+<div class="max-w-[1140px] mx-auto flex flex-col md:flex-row justify-between items-center text-xs tracking-wider gap-2">
+<div class="flex items-center space-x-2 font-label-sm text-label-sm text-secondary-fixed">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-fixed"></span>
+<span>BAR COUNCIL OF INDIA COMPLIANCE — Rule 36 &amp; Section 49(1)(c), Advocates Act, 1961</span>
+</div>
+<div class="flex items-center space-x-6 font-label-sm text-label-sm text-inverse-on-surface/80">
+<span>Bar Council Enrolment: <strong class="text-surface font-semibold">[PLACEHOLDER: D/XXXX/YEAR]</strong></span>
+<span class="hidden sm:inline text-outline">|</span>
+<span>Jurisdiction: <span class="text-surface font-semibold">High Court of Delhi &amp; Supreme Court of India</span></span>
+</div>
+</div>
+</aside>
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="w-full bg-surface dark:bg-primary border-b border-outline-variant/30 dark:border-outline/20 sticky top-0 z-40 transition-all duration-200 ease-in-out">
+<div class="w-full max-w-[1140px] mx-auto px-6 h-20 flex justify-between items-center">
+<!-- Wordmark Identity -->
+<div class="flex flex-col">
+<a class="font-headline-md text-headline-md tracking-tight text-primary dark:text-inverse-primary hover:opacity-90 transition-opacity" href="#hero">
+          [PLACEHOLDER: Advocate Name]
+        </a>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mt-0.5">
+          Advocate — Supreme Court of India &amp; High Court of Delhi
+        </span>
+</div>
+<!-- Desktop Nav Links -->
+<nav class="hidden lg:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary font-label-md text-label-md transition-colors" href="#about">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary font-label-md text-label-md transition-colors" href="#profile">Profile</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary font-label-md text-label-md transition-colors" href="#practice-areas">Practice Areas</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary font-label-md text-label-md transition-colors" href="#resources">Resources</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-inverse-primary font-label-md text-label-md transition-colors" href="#contact">Contact</a>
+<a class="text-primary dark:text-inverse-primary border-b border-secondary pb-1 font-label-md text-label-md" href="#disclaimer">Disclaimer</a>
+</nav>
+<!-- Trailing Action -->
+<div class="flex items-center space-x-4">
+<a class="px-5 py-2.5 rounded bg-primary text-on-primary hover:bg-primary-container border border-primary font-label-md text-label-md transition-colors tracking-wide shadow-none" href="#inquiry">
+          Inquire
+        </a>
+</div>
+</div>
+</header>
+<main>
+<!-- HERO SECTION WITH GRAND LAW LIBRARY ATMOSPHERE -->
+<section class="relative w-full min-h-[580px] lg:min-h-[640px] flex items-center bg-primary overflow-hidden border-b border-outline-variant/30" id="hero">
+<!-- Background Visual with Deep Scrim -->
+<div class="absolute inset-0 z-0">
+<img alt="Classical Law Library Interior" class="w-full h-full object-cover object-center filter brightness-[0.45] contrast-[1.1] scale-[1.02]" src="https://lh3.googleusercontent.com/aida/ALJJyrDC5gzsCKFsOe32x4zHiBKCcrGumpcWtp731A8Xu4Aw-wD-UUzhsi_CMZXw3PuxDia7KdqQj8fz55zAklt2YrIS38j22pOpA6OlIQEPP-ubj2s98qG7Qlqe2q29C9w5Ghu0W5MABXzinBzaEJmu29Xbi5ZumrTHfCMFHwOH4NXXau6OFZaUf3wGP9i66svxwU1v3TxWQ0ooJz38_i7GCOb9RRspndY_ZxCXC_U_FoBwu5ffaptzKwOAGa8"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-primary/40"></div>
+</div>
+<!-- Hero Content Container -->
+<div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 py-20">
+<div class="max-w-3xl">
+<!-- Institutional Tag -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-primary-container/80 border border-outline/30 text-secondary-fixed mb-6">
+<span class="material-symbols-outlined text-sm text-secondary-fixed">gavel</span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase">
+              REGULATED BY THE BAR COUNCIL OF INDIA • INFORMATIONAL PORTAL UNDER RULE 36
+            </span>
+</div>
+<!-- Main Dignified Headline -->
+<h1 class="font-headline-xl text-headline-xl text-surface font-normal tracking-tight mb-6 leading-tight">
+            Chamber of Legal Practice &amp; Jurisprudential Information
+          </h1>
+<!-- Constitutional & Restrained Overview -->
+<p class="font-body-lg text-body-lg text-inverse-on-surface/90 font-light mb-10 leading-relaxed max-w-2xl">
+            Providing comprehensive legal counsel, litigation advocacy, and advisory services before the High Court and Supreme Court of India with institutional restraint and constitutional integrity.
+          </p>
+<!-- Dual Restrained Informational CTAs -->
+<div class="flex flex-wrap items-center gap-4 mb-12">
+<a class="px-6 py-3.5 rounded bg-surface text-primary hover:bg-surface-container-low font-label-md text-label-md tracking-wider uppercase transition-all duration-150 border border-surface" href="#practice-areas">
+              Review Practice Focus
+            </a>
+<a class="px-6 py-3.5 rounded bg-transparent text-surface hover:bg-surface/10 font-label-md text-label-md tracking-wider uppercase transition-all duration-150 border border-outline-variant/60" href="#profile">
+              Chamber Overview
+            </a>
+</div>
+<!-- Standing Note -->
+<div class="pt-6 border-t border-outline/30 flex flex-wrap items-center gap-x-6 gap-y-2 text-surface-container-high/80 font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary-fixed">verified</span>
+              Enrolment No: <strong class="text-surface font-medium">D/[PLACEHOLDER]/[YEAR]</strong>
+</span>
+<span class="text-outline/60">•</span>
+<span>Member: <strong class="text-surface font-medium">Supreme Court Bar Association (SCBA)</strong> &amp; <strong class="text-surface font-medium">Delhi High Court Bar Association (DHCBA)</strong></span>
+</div>
+</div>
+</div>
+</section>
+<!-- ETHICAL FRAMEWORK & JURISDICTIONAL FORUMS -->
+<section class="w-full py-20 bg-surface" id="about">
+<div class="max-w-[1140px] mx-auto px-6">
+<!-- Section Header -->
+<div class="max-w-2xl mb-14">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Practice Architecture</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-4">Ethical Framework &amp; Practice Philosophy</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            The Chambers operates strictly in fidelity with the Advocates Act, 1961 and professional standards formulated by the Bar Council of India. Legal engagement is founded on intellectual rigor, statutory fidelity, and objective jurisprudential advisory.
+          </p>
+</div>
+<!-- Appellate Forums Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1: Supreme Court of India -->
+<div class="bg-surface-container-lowest p-6 rounded border border-outline-variant/40 flex flex-col justify-between hover:border-secondary/40 transition-colors">
+<div>
+<div class="w-10 h-10 rounded bg-surface-container-low flex items-center justify-center text-primary mb-5">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Supreme Court of India</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+                Article 32 &amp; Article 136 Special Leave Petitions (Civil &amp; Criminal), Statutory Appeals, and Constitutional References.
+              </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 font-label-sm text-label-sm text-secondary uppercase">
+              Apex Constitutional Forum
+            </div>
+</div>
+<!-- Card 2: High Court of Delhi -->
+<div class="bg-surface-container-lowest p-6 rounded border border-outline-variant/40 flex flex-col justify-between hover:border-secondary/40 transition-colors">
+<div>
+<div class="w-10 h-10 rounded bg-surface-container-low flex items-center justify-center text-primary mb-5">
+<span class="material-symbols-outlined text-2xl">balance</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">High Court of Delhi</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+                Article 226/227 Writ Petitions, Commercial Appellate Division, Ordinary Original Civil Jurisdiction, and Revision Benches.
+              </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 font-label-sm text-label-sm text-secondary uppercase">
+              State High Court Jurisdiction
+            </div>
+</div>
+<!-- Card 3: NCLAT & NCLT -->
+<div class="bg-surface-container-lowest p-6 rounded border border-outline-variant/40 flex flex-col justify-between hover:border-secondary/40 transition-colors">
+<div>
+<div class="w-10 h-10 rounded bg-surface-container-low flex items-center justify-center text-primary mb-5">
+<span class="material-symbols-outlined text-2xl">corporate_fare</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">NCLAT &amp; NCLT</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+                Insolvency and Bankruptcy Code (IBC 2016), Corporate Insolvency Resolution Processes, and Companies Act proceedings.
+              </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 font-label-sm text-label-sm text-secondary uppercase">
+              Company Law Benches
+            </div>
+</div>
+<!-- Card 4: Arbitral Tribunals -->
+<div class="bg-surface-container-lowest p-6 rounded border border-outline-variant/40 flex flex-col justify-between hover:border-secondary/40 transition-colors">
+<div>
+<div class="w-10 h-10 rounded bg-surface-container-low flex items-center justify-center text-primary mb-5">
+<span class="material-symbols-outlined text-2xl">contract</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Arbitral Tribunals</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-4">
+                Domestic and International Commercial Arbitrations conducted under the Arbitration &amp; Conciliation Act, 1996.
+              </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 font-label-sm text-label-sm text-secondary uppercase">
+              Statutory Tribunals &amp; ADR
+            </div>
+</div>
+</div>
+<!-- Official Status Strip -->
+<div class="mt-8 bg-surface-container-low border border-outline-variant/40 rounded p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-secondary text-2xl">shield</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Bar Council of Delhi Roll Enrolment</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Active Bar Standing with regular right of audience in Indian Judicial Forums.</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm px-3 py-1 rounded bg-surface-container-high text-primary uppercase font-semibold">Verified Registry Entry</span>
+</div>
+</div>
+</div>
+</section>
+<!-- PRACTICE AREAS INFORMATIONAL COMPENDIUM -->
+<section class="w-full py-20 bg-surface-container-low border-y border-outline-variant/30" id="practice-areas">
+<div class="max-w-[1140px] mx-auto px-6">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Subject Matter Compendium</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Fields of Legal Practice</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md mt-4 md:mt-0">
+            Disciplines and statutory frameworks catalogued strictly for educational and objective institutional guidance in conformity with BCI norms.
+          </p>
+</div>
+<!-- 3-Column Editorial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Area 1 -->
+<article class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider block mb-3">01 / PUBLIC LAW</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Constitutional &amp; Administrative Law</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Appellate remedies, protection of Fundamental Rights under Part III, prerogative writs of Mandamus, Certiorari, Habeas Corpus, and statutory challenges to subordinate legislation.
+              </p>
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-on-surface/70 block mb-1">Applicable Statutes:</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">Constitution of India, 1950</span>
+</div>
+</div>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors group" href="#inquiry">
+              Examine Statutory Scope <span class="material-symbols-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</article>
+<!-- Area 2 -->
+<article class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider block mb-3">02 / COMMERCIAL DISPUTES</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Corporate &amp; Commercial Litigation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Shareholder disputes, oppression and mismanagement actions, contractual enforcement, pre-institution mediation protocols, and commercial court trials.
+              </p>
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-on-surface/70 block mb-1">Applicable Statutes:</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">Companies Act 2013, Commercial Courts Act 2015</span>
+</div>
+</div>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors group" href="#inquiry">
+              Examine Statutory Scope <span class="material-symbols-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</article>
+<!-- Area 3 -->
+<article class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider block mb-3">03 / PROPERTY &amp; EQUITY</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Civil Litigation &amp; Real Property</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Declaration suits, recovery of immovable property, specific performance of conveyance agreements, partition suits, and land acquisition references.
+              </p>
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-on-surface/70 block mb-1">Applicable Statutes:</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">CPC 1908, Specific Relief Act 1963, Transfer of Property Act</span>
+</div>
+</div>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors group" href="#inquiry">
+              Examine Statutory Scope <span class="material-symbols-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</article>
+<!-- Area 4 -->
+<article class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider block mb-3">04 / CRIMINAL DEFENSE</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Criminal Jurisprudence &amp; Appellate Defense</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Special criminal appeals, bail jurisprudence, white-collar statutory offenses, prevention of money laundering defenses, and quashing petitions.
+              </p>
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-on-surface/70 block mb-1">Applicable Statutes:</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">BNSS 2023 / CrPC, BNS 2023 / IPC, PMLA 2002</span>
+</div>
+</div>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors group" href="#inquiry">
+              Examine Statutory Scope <span class="material-symbols-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</article>
+<!-- Area 5 -->
+<article class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider block mb-3">05 / ARBITRATION &amp; ADR</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Arbitration &amp; Alternative Dispute Resolution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Interim protection applications under Section 9, appointment of arbitrators under Section 11, setting aside of arbitral awards under Section 34, and award execution.
+              </p>
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-on-surface/70 block mb-1">Applicable Statutes:</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">Arbitration and Conciliation Act, 1996</span>
+</div>
+</div>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors group" href="#inquiry">
+              Examine Statutory Scope <span class="material-symbols-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</article>
+<!-- Area 6 -->
+<article class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary tracking-wider block mb-3">06 / FINANCIAL INSOLVENCY</span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Banking, Insolvency &amp; Debt Recovery</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Creditor rights, corporate debtor representation, resolution plan evaluation, actions before Debt Recovery Tribunals (DRT) and DRAT appellate stages.
+              </p>
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-on-surface/70 block mb-1">Applicable Statutes:</span>
+<span class="font-body-sm text-body-sm text-primary font-medium">Insolvency and Bankruptcy Code (IBC 2016), SARFAESI Act</span>
+</div>
+</div>
+<a class="inline-flex items-center text-primary font-label-md text-label-md hover:text-secondary transition-colors group" href="#inquiry">
+              Examine Statutory Scope <span class="material-symbols-outlined text-sm ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</article>
+</div>
+</div>
+</section>
+<!-- QUALIFICATIONS & CREDENTIALS SNAPSHOT -->
+<section class="w-full py-20 bg-surface" id="profile">
+<div class="max-w-[1140px] mx-auto px-6">
+<div class="text-center max-w-xl mx-auto mb-16">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Standing &amp; Pedigree</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Academic Background &amp; Professional Standing</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Pillar 1 -->
+<div class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40">
+<div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-2xl">school</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Academic Qualifications</h3>
+<ul class="space-y-4 font-body-sm text-body-sm text-on-surface-variant">
+<li class="pb-3 border-b border-outline-variant/20">
+<strong class="text-primary block font-body-md">Master of Laws (LL.M.)</strong>
+<span class="text-on-surface/70">[PLACEHOLDER: Specialization, University Name]</span>
+</li>
+<li class="pb-3 border-b border-outline-variant/20">
+<strong class="text-primary block font-body-md">Bachelor of Laws (LL.B.)</strong>
+<span class="text-on-surface/70">[PLACEHOLDER: Faculty of Law, University Name]</span>
+</li>
+<li>
+<strong class="text-primary block font-body-md">Bachelor of Arts (B.A. Hons.)</strong>
+<span class="text-on-surface/70">[PLACEHOLDER: Department of Economics / Political Science]</span>
+</li>
+</ul>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40">
+<div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Bar Enrolments &amp; Standing</h3>
+<ul class="space-y-4 font-body-sm text-body-sm text-on-surface-variant">
+<li class="pb-3 border-b border-outline-variant/20">
+<strong class="text-primary block font-body-md">Bar Council of Delhi</strong>
+<span class="text-on-surface/70">Enrolled Advocate on State Rolls (Act 1961)</span>
+</li>
+<li class="pb-3 border-b border-outline-variant/20">
+<strong class="text-primary block font-body-md">Supreme Court Bar Association</strong>
+<span class="text-on-surface/70">Regular Member (SCBA), New Delhi</span>
+</li>
+<li>
+<strong class="text-primary block font-body-md">Delhi High Court Bar Association</strong>
+<span class="text-on-surface/70">Member (DHCBA), Sher Shah Road</span>
+</li>
+</ul>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-surface-container-lowest p-8 rounded border border-outline-variant/40">
+<div class="w-12 h-12 rounded bg-surface-container-low flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Scholarly Affiliations</h3>
+<ul class="space-y-4 font-body-sm text-body-sm text-on-surface-variant">
+<li class="pb-3 border-b border-outline-variant/20">
+<strong class="text-primary block font-body-md">Indian Law Institute (ILI)</strong>
+<span class="text-on-surface/70">Life Member / Academic Research Contributor</span>
+</li>
+<li class="pb-3 border-b border-outline-variant/20">
+<strong class="text-primary block font-body-md">Constitutional Law Society</strong>
+<span class="text-on-surface/70">Appellate Digest Editorial Contributor</span>
+</li>
+<li>
+<strong class="text-primary block font-body-md">International Council of Jurists</strong>
+<span class="text-on-surface/70">Registered Legal Fellow / Comparative Law</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- LEGAL COMMENTARY & SCHOLARLY RESOURCES TEASER -->
+<section class="w-full py-20 bg-surface-container-low border-t border-outline-variant/30" id="resources">
+<div class="max-w-[1140px] mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Scholarly Papers</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Legal Commentary &amp; Case Notes</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md mt-4 md:mt-0">
+            Authored case notes and statutory interpretations provided strictly for academic and pedagogical reference.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<!-- Article 1 -->
+<article class="bg-surface-container-lowest p-6 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant mb-3">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">CONSTITUTIONAL JURISPRUDENCE</span>
+<span>[MONTH, YEAR]</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3 leading-snug">
+                Doctrine of Proportionality in Administrative Review under Article 226
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                An analysis of Wednesbury unreasonableness versus structured proportionality test adopted by five-judge constitutional benches in judicial review.
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-primary underline underline-offset-4 cursor-pointer hover:text-secondary">
+              Read Digest Note →
+            </span>
+</article>
+<!-- Article 2 -->
+<article class="bg-surface-container-lowest p-6 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant mb-3">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">ARBITRATION PRACTICE</span>
+<span>[MONTH, YEAR]</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3 leading-snug">
+                Scope of Referral under Section 11(6) in Unstamped Contracts Post-Curative Bench
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Examination of the 7-judge Constitution Bench ruling harmonizing the Stamp Act, 1899 with the mandate of minimal judicial intervention under Section 5.
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-primary underline underline-offset-4 cursor-pointer hover:text-secondary">
+              Read Digest Note →
+            </span>
+</article>
+<!-- Article 3 -->
+<article class="bg-surface-container-lowest p-6 rounded border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant mb-3">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">INSOLVENCY &amp; RESTRUCTURING</span>
+<span>[MONTH, YEAR]</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3 leading-snug">
+                Interplay of Limitation Act with Section 7 &amp; 9 Insolvency Petitions
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 leading-relaxed">
+                Critical review of Article 137 application, Section 18 acknowledgement in balance sheets, and appellate standards before NCLAT.
+              </p>
+</div>
+<span class="font-label-sm text-label-sm text-primary underline underline-offset-4 cursor-pointer hover:text-secondary">
+              Read Digest Note →
+            </span>
+</article>
+</div>
+<div class="text-center">
+<a class="inline-flex items-center font-label-md text-label-md text-primary hover:text-secondary transition-colors" href="#resources">
+            View Complete Legal Digest Archive <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- OFFICIAL CHAMBERS REGISTRY & INQUIRY PROTOCOL -->
+<section class="w-full py-20 bg-surface" id="contact">
+<div class="max-w-[1140px] mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Registry Details -->
+<div class="lg:col-span-5">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-2">Chamber Secretariat</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-4">Official Chambers Registry</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+              Administrative communications, cause-list inquiries, and transmission of court papers may be directed through the clerk's desk.
+            </p>
+<div class="space-y-6">
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-secondary mt-1">location_on</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Chambers Address</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                    Chambers No. [PLACEHOLDER], Lawyers' Chambers Block,<br/>
+                    Supreme Court of India / Delhi High Court Enclave,<br/>
+                    New Delhi — 110001, India
+                  </p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-secondary mt-1">mail</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Registry Communication</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    registry@[PLACEHOLDER-ADVOCATE-DOMAIN].in<br/>
+                    chambers.clerk@[PLACEHOLDER-ADVOCATE-DOMAIN].in
+                  </p>
+</div>
+</div>
+<div class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-secondary mt-1">call</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Telephone / Clerk Desk</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                    +91 11 [PLACEHOLDER: Landline Office]<br/>
+                    Hours: Monday – Friday, 10:00 AM – 6:00 PM IST
+                  </p>
+</div>
+</div>
+</div>
+<!-- Court Sitting Timings -->
+<div class="mt-8 p-4 bg-surface-container-low rounded border border-outline-variant/30 text-xs text-on-surface-variant">
+<strong class="text-primary block font-label-sm text-label-sm mb-1 uppercase">Court Sittings Note:</strong>
+              During judicial sessions (10:30 AM – 4:00 PM), in-person chamber visits are strictly by prior administrative docketing.
+            </div>
+</div>
+<!-- Right Column: Formal Non-Confidential Dispatch Form -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-8 lg:p-10 rounded border border-outline-variant/40" id="inquiry">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Procedural Inquiry Transmission</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+              Complete the formal registry dispatch below for administrative communication. No confidential litigation strategy should be transmitted through web portals.
+            </p>
+<form class="space-y-4" onsubmit="event.preventDefault(); alert('Administrative transmission recorded. Acknowledgment will be issued by Chamber Registry.');">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-1">Full Legal Name *</label>
+<input class="w-full text-sm rounded bg-surface border border-outline-variant/50 focus:border-secondary focus:ring-0 p-2.5 text-on-surface" placeholder="Sri / Smt. [First Last Name]" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-1">Designation / Organization</label>
+<input class="w-full text-sm rounded bg-surface border border-outline-variant/50 focus:border-secondary focus:ring-0 p-2.5 text-on-surface" placeholder="Individual / Entity Name" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-1">Official Email Address *</label>
+<input class="w-full text-sm rounded bg-surface border border-outline-variant/50 focus:border-secondary focus:ring-0 p-2.5 text-on-surface" placeholder="counsel@entity.in" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-1">Forum of Jurisdiction</label>
+<select class="w-full text-sm rounded bg-surface border border-outline-variant/50 focus:border-secondary focus:ring-0 p-2.5 text-on-surface">
+<option>Supreme Court of India</option>
+<option>High Court of Delhi</option>
+<option>NCLAT / NCLT Benches</option>
+<option>Arbitration Tribunal</option>
+<option>Other Statutory Authority</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-1">Brief Procedural Context *</label>
+<textarea class="w-full text-sm rounded bg-surface border border-outline-variant/50 focus:border-secondary focus:ring-0 p-2.5 text-on-surface" placeholder="Specify case number, forum, listing stage, or statutory query..." required="" rows="4"></textarea>
+</div>
+<!-- Mandatory Non-Solicitation Acknowledgment -->
+<div class="pt-2">
+<label class="flex items-start space-x-3 cursor-pointer">
+<input class="mt-1 rounded border-outline text-primary focus:ring-0" required="" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+                    I acknowledge that this transmission is purely administrative and informational, and does not constitute solicitation or create an advocate-client relationship under the Advocates Act, 1961.
+                  </span>
+</label>
+</div>
+<div class="pt-4">
+<button class="w-full sm:w-auto px-8 py-3 rounded bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md tracking-wider uppercase transition-colors" type="submit">
+                  Transmit to Chamber Registry
+                </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- STATUTORY BCI MANDATORY DISCLAIMER BOX -->
+<section class="w-full py-12 bg-surface-container border-t border-outline-variant/40" id="disclaimer">
+<div class="max-w-[1140px] mx-auto px-6">
+<div class="p-8 rounded bg-surface-container-lowest border border-outline-variant/60 shadow-none">
+<div class="flex items-center space-x-2 text-primary mb-3">
+<span class="material-symbols-outlined text-secondary">gavel</span>
+<h3 class="font-headline-sm text-headline-sm uppercase tracking-wide">Statutory Bar Council of India Declaration</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed text-justify mb-4">
+            Under the rules of the Bar Council of India (specifically Rule 36 of Chapter II, Part VI of the Bar Council of India Rules enacted under Section 49(1)(c) of the Advocates Act, 1961), advocates are prohibited from soliciting work or advertising in any form or manner. By accessing this web portal (<strong class="text-primary font-medium">[PLACEHOLDER: website URL]</strong>), the user acknowledges and confirms that:
+          </p>
+<ul class="list-disc pl-5 font-body-sm text-body-sm text-on-surface-variant space-y-1.5 leading-relaxed text-justify">
+<li>There has been no advertisement, personal communication, solicitation, invitation, or inducement of any sort whatsoever from the Advocate or any associate to solicit work through this website.</li>
+<li>The user seeks to gain information about the Advocate's fields of practice and chambers strictly for their own informational and educational purpose.</li>
+<li>The information provided herein is made available solely upon the user’s specific request, and any transmission, receipt, or use of this site does not establish an advocate-client relationship.</li>
+<li>The Advocate is not liable for any consequence of any action taken by the user relying on material or information provided on this portal. In all circumstances, users should seek independent legal counsel.</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- SHARED COMPONENT: Footer -->
+<footer class="w-full bg-surface-container-low dark:bg-tertiary-container border-t border-outline-variant/30 dark:border-outline/20 py-12 px-6">
+<div class="max-w-[1140px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary dark:text-inverse-primary tracking-tight">
+          [PLACEHOLDER: Advocate Name]
+        </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant dark:text-surface-variant mt-2 max-w-xl">
+          © [PLACEHOLDER: Year] [PLACEHOLDER: Advocate Name], Advocate. Regulated under the Advocates Act, 1961 and Bar Council of India Rules. Strictly non-promotional and educational.
+        </p>
+</div>
+<!-- Links Cluster -->
+<nav class="flex flex-wrap items-center gap-y-2 gap-x-6">
+<a class="text-primary dark:text-inverse-primary font-label-sm text-label-sm underline" href="#disclaimer">Bar Council Disclaimer</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-inverse-primary" href="#practice-areas">Practice Focus</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-inverse-primary" href="#resources">Legal Resources</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-inverse-primary" href="#disclaimer">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-inverse-primary" href="#disclaimer">Terms of Use</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-sm text-label-sm hover:text-primary dark:hover:text-inverse-primary" href="#contact">Office Registry</a>
+</nav>
+</div>
+</footer>
+</body></html>

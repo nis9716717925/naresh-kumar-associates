@@ -1,0 +1,126 @@
+{
+  "projectId": "3582213407744420660",
+  "projectName": "projects/3582213407744420660",
+  "designSystemId": "assets/2614059725204261984",
+  "designSystemName": "Advocate Professional Legal",
+  "note": "Gemini Pro screen generation often exceeds MCP client timeout (~30s). Prefer GEMINI_3_5_FLASH_LITE for remaining screens. list_screens may not return every screen; get_screen by id still works.",
+  "screens": {
+    "home-desktop": {
+      "id": "04062d50c65b47e2b37196e9b5a429c6",
+      "html": "projects/3582213407744420660/files/706972bfdacf42b993391285e375cf5f",
+      "screenshot": "projects/3582213407744420660/files/c23afd000d5849b2ad10f466edb7c266",
+      "device": "DESKTOP",
+      "implementedRoute": "/"
+    },
+    "home-mobile": {
+      "id": "5c1165a24a424670b983a25d619d0aa2",
+      "html": "projects/3582213407744420660/files/4e72fa92c18c403fb5098c34dbcf363d",
+      "device": "MOBILE",
+      "implementedRoute": "/"
+    },
+    "about-desktop": {
+      "id": "bbcc93fe74084599b405f55027045818",
+      "html": "projects/3582213407744420660/files/eb11546420224cc5b34c3112d9b39a7a",
+      "device": "DESKTOP",
+      "implementedRoute": "/about"
+    },
+    "profile-desktop": {
+      "id": "1e7b1e4088b14495affdf8e788822830",
+      "html": "projects/3582213407744420660/files/b19319be28034f18b23ba77b520a58b5",
+      "device": "DESKTOP",
+      "implementedRoute": "/profile"
+    },
+    "qualifications-desktop": {
+      "id": "f48b006808ef480fb3ed6ae336d58bfd",
+      "html": "projects/3582213407744420660/files/a84e88845f594d408affa9a27e02ceee",
+      "device": "DESKTOP",
+      "implementedRoute": "/qualifications"
+    },
+    "experience-desktop": {
+      "id": "4c7f8e29505e4f5d8c465f9de475f042",
+      "html": "projects/3582213407744420660/files/d1c6acc44ec14a339b1f0953cee379e4",
+      "device": "DESKTOP",
+      "implementedRoute": "/experience"
+    },
+    "practice-areas-hub-desktop": {
+      "id": "7133e0613aed46ff9a8168efb0b27527",
+      "html": "projects/3582213407744420660/files/fe32fc4875f14a57b64adb1597dd2101",
+      "device": "DESKTOP",
+      "implementedRoute": "/practice-areas"
+    },
+    "practice-information-desktop": {
+      "id": "f7a2253688f947adb6947d0921980c44",
+      "html": "projects/3582213407744420660/files/98d82c936da44115831196607ce8577d",
+      "device": "DESKTOP",
+      "implementedRoute": "/practice-information"
+    },
+    "contact-desktop": {
+      "id": "6ba07bffb2ca48e89812f522b1bfedff",
+      "html": "projects/3582213407744420660/files/333dbb335d3c4fcaa3ce6f67dae59885",
+      "device": "DESKTOP",
+      "implementedRoute": "/contact"
+    },
+    "contact-success-desktop": {
+      "id": "b7ed8826fae649a1a900c2b5950967d1",
+      "html": "projects/3582213407744420660/files/ed3e861616b8457393b92eb485947545",
+      "device": "DESKTOP",
+      "implementedRoute": "/contact/success"
+    },
+    "faq-desktop": {
+      "id": "cad829b3b5ce42dca4c6947580f0ab99",
+      "html": "projects/3582213407744420660/files/4b78a565501f4a6dbfc47f2f9273706d",
+      "device": "DESKTOP",
+      "implementedRoute": "/faq"
+    },
+    "disclaimer-desktop": {
+      "id": "a90b8a6c73bc478ca42f1da9007fba64",
+      "html": "projects/3582213407744420660/files/51ce3c02b29a4d10b4c48ec4bc15eb14",
+      "device": "DESKTOP",
+      "implementedRoute": "/disclaimer"
+    },
+    "privacy-desktop": {
+      "id": "5d81109d3d124b4bb75ce6290f78cac7",
+      "html": "projects/3582213407744420660/files/d86624ef7f72423293112c437a5ec642",
+      "device": "DESKTOP",
+      "implementedRoute": "/privacy"
+    },
+    "terms-desktop": {
+      "id": "8d1304c1298744198b164e2a35379004",
+      "html": "projects/3582213407744420660/files/a14cddfc7b9a4a909fc74123bb9fb0b1",
+      "device": "DESKTOP",
+      "implementedRoute": "/terms"
+    },
+    "sitemap-desktop": {
+      "id": "d87ccb8ffb2c436ab3dfbfb25f51d70b",
+      "html": "projects/3582213407744420660/files/afe96a2af9f94531b8c76835bdd1d066",
+      "device": "DESKTOP",
+      "implementedRoute": "/sitemap"
+    },
+    "404-desktop": {
+      "id": "a10144e9a1bf4879a9b84785e12ef2c5",
+      "html": "projects/3582213407744420660/files/b4625c686cc243d79ba03634381b7eb5",
+      "device": "DESKTOP",
+      "implementedRoute": "not-found"
+    },
+    "articles-index-desktop": {
+      "id": "af41ab39552b4e6ba5062c230307112a",
+      "html": "projects/3582213407744420660/files/eff28fb78dda40a496b5bafdbf828296",
+      "device": "DESKTOP",
+      "implementedRoute": "/resources/articles"
+    },
+    "applications-hub-desktop": {
+      "id": "08e134ccf2434097b27d7715cb4236f9",
+      "html": "projects/3582213407744420660/files/79933da42b5841c8816246660ce10efd",
+      "screenshot": "projects/3582213407744420660/files/b969a5d0e3f74cce90b167f9db25838d",
+      "device": "DESKTOP",
+      "implementedRoute": "/applications"
+    }
+  },
+  "pendingOrUnconfirmedStitchScreens": [
+    "Associates page — Stitch reported existing design but list_screens does not return a stable screen id; implemented with design-system patterns",
+    "Remaining practice-area detail page Stitch variants",
+    "Dedicated mobile variants for every inner page",
+    "Legal News / Guides / Resources Legal FAQ dedicated screens (may exist from background jobs)",
+    "Article Detail dedicated screen confirmation"
+  ]
+}
