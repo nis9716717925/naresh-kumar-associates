@@ -6,7 +6,6 @@ import { useEffect, useId, useState } from "react";
 import { isNavVisible, mainNav, previewNavExtras, publicationFlags } from "@/lib/site";
 import { NkaLogo } from "@/components/brand/NkaLogo";
 import { Button } from "@/components/ui/Button";
-import { MaterialIcon } from "@/components/ui/MaterialIcon";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -30,14 +29,14 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-outline-variant/30 bg-surface/95 backdrop-blur-sm">
-      <div className="container-site flex min-h-16 items-center justify-between gap-3 py-3 sm:min-h-20 sm:py-0">
-        <div className="min-w-0 flex-1 pr-2">
+    <header className="relative sticky top-0 z-40 w-full border-b border-outline-variant/30 bg-surface/95 backdrop-blur-sm">
+      <div className="container-site relative flex min-h-16 items-center py-2.5 pr-12 sm:min-h-20 sm:py-0 lg:gap-6 lg:pr-0">
+        <div className="min-w-0 flex-1">
           <NkaLogo />
         </div>
 
         <nav
-          className="hidden items-center gap-5 xl:gap-7 lg:flex"
+          className="hidden shrink-0 items-center gap-5 xl:gap-7 lg:flex"
           aria-label="Main navigation"
         >
           {visibleNav.map((item) => {
@@ -63,25 +62,37 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          <Button
-            href="/contact"
-            variant="primary"
-            className="hidden px-4 py-2 lg:inline-flex lg:items-center"
-          >
+        <div className="hidden shrink-0 lg:block">
+          <Button href="/contact" variant="primary" className="px-4 py-2">
             Inquire
           </Button>
-          <button
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded border border-outline-variant/40 text-primary lg:hidden"
-            aria-expanded={open}
-            aria-controls={drawerId}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-            <MaterialIcon name={open ? "close" : "menu"} />
-          </button>
         </div>
+
+        {/* Mobile menu control — absolutely centered to the header row */}
+        <button
+          type="button"
+          className="absolute top-1/2 right-4 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded border border-outline-variant/40 text-primary sm:right-6 sm:h-10 sm:w-10 lg:hidden"
+          aria-expanded={open}
+          aria-controls={drawerId}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+          {open ? (
+            <span className="relative block h-[14px] w-[14px]" aria-hidden>
+              <span className="absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 rotate-45 bg-current" />
+              <span className="absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 -rotate-45 bg-current" />
+            </span>
+          ) : (
+            <span
+              className="flex h-[12px] w-[14px] flex-col justify-between"
+              aria-hidden
+            >
+              <span className="block h-[1.5px] w-full bg-current" />
+              <span className="block h-[1.5px] w-full bg-current" />
+              <span className="block h-[1.5px] w-full bg-current" />
+            </span>
+          )}
+        </button>
       </div>
 
       {open && (
@@ -92,12 +103,12 @@ export function SiteHeader() {
           aria-modal="true"
           aria-label="Mobile navigation"
         >
-          <nav className="container-site flex flex-col gap-1 py-4" aria-label="Mobile">
+          <nav className="container-site flex flex-col py-2" aria-label="Mobile">
             {visibleNav.map((item) => (
-              <div key={item.href}>
+              <div key={item.href} className="min-w-0">
                 <Link
                   href={item.href}
-                  className="block rounded px-3 py-3 type-label-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary"
+                  className="flex min-h-11 items-center rounded px-1 type-label-md text-on-surface-variant hover:bg-surface-container-low hover:px-3 hover:text-primary"
                 >
                   {item.label}
                 </Link>
@@ -105,7 +116,7 @@ export function SiteHeader() {
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="block rounded px-6 py-2.5 type-body-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary"
+                    className="flex min-h-10 items-center rounded pl-4 type-body-sm text-on-surface-variant hover:bg-surface-container-low hover:px-4 hover:text-primary"
                   >
                     {child.label}
                   </Link>
@@ -113,22 +124,22 @@ export function SiteHeader() {
               </div>
             ))}
             {showDraftPreview && (
-              <div className="mt-2 border-t border-outline-variant/30 pt-3">
-                <p className="px-3 pb-1 type-label-sm uppercase tracking-wider text-secondary">
+              <div className="mt-1 border-t border-outline-variant/30 pt-1">
+                <p className="px-1 py-2 type-label-sm uppercase tracking-wider text-secondary">
                   Internal draft preview
                 </p>
                 {previewNavExtras.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block rounded px-3 py-2.5 type-body-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary"
+                    className="flex min-h-10 items-center rounded px-1 type-body-sm text-on-surface-variant hover:bg-surface-container-low hover:px-3 hover:text-primary"
                   >
                     {item.label}
                   </Link>
                 ))}
               </div>
             )}
-            <div className="mt-2 border-t border-outline-variant/30 px-3 pt-4">
+            <div className="mt-1 border-t border-outline-variant/30 px-1 pt-3 pb-2">
               <Button href="/contact" variant="primary" className="w-full">
                 Inquire
               </Button>

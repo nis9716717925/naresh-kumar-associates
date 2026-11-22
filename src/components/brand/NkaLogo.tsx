@@ -27,7 +27,7 @@ export function NkaLogo({
     />
   ) : (
     <span
-      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded border border-secondary/50 bg-primary text-[0.7rem] font-semibold tracking-[0.12em] text-surface sm:h-10 sm:w-10 sm:text-xs"
+      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded border border-secondary/50 bg-primary text-[0.7rem] font-semibold leading-none tracking-[0.12em] text-surface sm:h-10 sm:w-10 sm:text-xs"
       aria-hidden
     >
       {siteConfig.logoInitials}
@@ -35,11 +35,13 @@ export function NkaLogo({
   );
 
   const content = (
-    <span className={`inline-flex min-w-0 items-center gap-2.5 ${className}`}>
+    <span
+      className={`inline-flex max-w-full min-w-0 items-center gap-2 sm:gap-2.5 ${className}`}
+    >
       {mark}
       {showText && (
-        <span className="min-w-0">
-          <span className="block truncate font-[family-name:var(--font-headline)] text-[1.05rem] leading-[1.3rem] tracking-tight text-primary sm:text-[1.35rem] sm:leading-7">
+        <span className="min-w-0 overflow-hidden">
+          <span className="block truncate font-[family-name:var(--font-headline)] text-[0.95rem] leading-5 tracking-tight text-primary sm:text-[1.35rem] sm:leading-7">
             {siteConfig.practiceName}
           </span>
           <span className="mt-0.5 block truncate type-label-sm uppercase tracking-widest text-secondary">
@@ -52,7 +54,10 @@ export function NkaLogo({
 
   if (!href) return content;
   return (
-    <Link href={href} className="transition-opacity hover:opacity-90">
+    <Link
+      href={href}
+      className="inline-flex max-w-full min-w-0 items-center transition-opacity hover:opacity-90"
+    >
       {content}
     </Link>
   );
