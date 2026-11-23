@@ -133,7 +133,7 @@ export function SiteFooter() {
             not constitute advertisement or solicitation of professional work
             under the Advocates Act, 1961 and Bar Council of India Rules. Contact
             details and associate listings remain subject to client confirmation
-            and professional review before public launch. Domain:{" "}
+            and professional review before public launch. Intended domain:{" "}
             {siteConfig.domain}.
           </p>
         </div>

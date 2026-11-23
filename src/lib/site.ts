@@ -25,14 +25,22 @@ export const publicationFlags: PublicationFlags = {
   clientFinalReviewComplete: false,
 };
 
-const defaultSiteUrl = "https://youradvocates.in";
+/** Final production domain — connect DNS when the site is ready to launch. */
+export const intendedDomain = "youradvocates.in";
+export const intendedSiteUrl = `https://${intendedDomain}`;
 
 export const siteConfig = {
   title: "Naresh Kumar & Associates — Advocate",
   description:
     "Informational portal for Advocate Naresh Kumar (Individual Practice), presented under the branding Naresh Kumar & Associates. Subject to Bar Council of India Rule 36. Educational content only; no solicitation.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl,
-  domain: "youradvocates.in",
+  /**
+   * Live site URL for sitemap/canonical/OG.
+   * Set NEXT_PUBLIC_SITE_URL to the temporary Hostinger URL while testing;
+   * switch to https://youradvocates.in when that domain is connected.
+   */
+  url: process.env.NEXT_PUBLIC_SITE_URL || intendedSiteUrl,
+  domain: intendedDomain,
+  intendedSiteUrl,
   practiceName: "Naresh Kumar & Associates",
   professionalDescriptor: "Advocate",
   practiceStructure: "Individual Practice",
