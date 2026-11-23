@@ -22,9 +22,12 @@ export default function PracticeInformationPage() {
       />
       <Section>
         <DraftNotice>
-          Delhi High Court appears crossed out in the handwritten source and is
-          intentionally omitted until explicitly confirmed. Forum listings are
-          not claims of specialisation, superiority, or guaranteed results.
+          Delhi High Court is excluded from this practice list per client
+          instruction. The client indicated additional courts/forums should be
+          included, but names have not been supplied — do not invent them. Bar
+          Association membership of the Delhi High Court Bar Association (on the
+          profile page) is separate from listing Delhi High Court as a practice
+          forum.
         </DraftNotice>
         <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2">
           {forumCards.map((card) => (
@@ -50,7 +53,11 @@ export default function PracticeInformationPage() {
         <div className="grid gap-8 lg:grid-cols-2">
           <ProseSection title="Chamber communications">
             <p>
-              Registry enquiries may be directed to {siteConfig.email}. Mobile:{" "}
+              Registry enquiries may be directed using the contact details on the{" "}
+              <a href="/contact" className="underline-offset-2 hover:underline">
+                Contact
+              </a>{" "}
+              page. Mobile:{" "}
               <a href={siteConfig.mobileTel} className="underline-offset-2 hover:underline">
                 {siteConfig.mobile}
               </a>
@@ -63,12 +70,8 @@ export default function PracticeInformationPage() {
               </a>
               .
             </p>
-            <p>
-              Chamber: {siteConfig.chamberAddress}
-            </p>
-            <p>
-              Registered office: {siteConfig.registeredOfficeAddress}
-            </p>
+            <p>Chamber: {siteConfig.chamberAddress}</p>
+            <p>Registered office: {siteConfig.registeredOfficeAddress}</p>
             <p>Office hours: {siteConfig.officeHours}.</p>
           </ProseSection>
           <ProseSection title="Informational scope">
@@ -77,9 +80,7 @@ export default function PracticeInformationPage() {
               outcome assessments through web forms. Enquiries are screened as
               administrative where permitted.
             </p>
-            <p>
-              {siteConfig.structureDisclaimer}
-            </p>
+            <p>{siteConfig.structureDisclaimer}</p>
           </ProseSection>
         </div>
       </Section>

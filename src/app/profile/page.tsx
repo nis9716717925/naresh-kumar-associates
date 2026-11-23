@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(
   "Advocate Profile",
-  "Informational profile for Naresh Kumar, Principal Advocate.",
+  "Informational profile for Advocate Naresh Kumar — Individual Practice.",
   "/profile",
 );
 
@@ -27,22 +27,31 @@ export default function ProfilePage() {
 }
 
 function ProfileGrid() {
-  const rows = [
-    { label: "Practice name", value: siteConfig.practiceName },
-    { label: "Professional descriptor", value: siteConfig.professionalDescriptor },
+  const rows: { label: string; value: string; href?: string }[] = [
+    { label: "Practice structure", value: siteConfig.practiceStructure },
+    { label: "Public branding", value: siteConfig.practiceName },
     { label: "Name", value: siteConfig.advocateName },
-    { label: "Title", value: siteConfig.principalTitle },
+    { label: "Designation", value: siteConfig.principalTitle },
     { label: "Bar Council enrolment", value: siteConfig.barEnrolment },
-    { label: "Jurisdiction / forums", value: siteConfig.jurisdiction },
+    { label: "Bar Council", value: siteConfig.barCouncil },
+    {
+      label: "Bar Association membership",
+      value: siteConfig.barAssociations.join("; "),
+    },
+    {
+      label: "Academic qualifications",
+      value: siteConfig.qualifications.join("; "),
+    },
+    { label: "Professional experience", value: siteConfig.yearsOfPracticeLabel },
     { label: "Chamber address", value: siteConfig.chamberAddress },
     { label: "Registered office", value: siteConfig.registeredOfficeAddress },
     {
-      label: "Mobile",
+      label: "Personal contact 1",
       value: siteConfig.mobile,
       href: siteConfig.mobileTel,
     },
     {
-      label: "Additional advocate contact",
+      label: "Personal contact 2",
       value: siteConfig.additionalMobile,
       href: siteConfig.additionalMobileTel,
     },
@@ -51,12 +60,8 @@ function ProfileGrid() {
       value: `${siteConfig.officePhone} — ${siteConfig.officePhoneNote}`,
       href: siteConfig.officePhoneTel,
     },
-    { label: "Professional email", value: siteConfig.email },
-    {
-      label: "Professional summary",
-      value:
-        "[PLACEHOLDER: Brief neutral professional summary pending advocate verification]",
-    },
+    { label: "Primary email", value: siteConfig.email },
+    { label: "Secondary email (info@)", value: siteConfig.infoEmail },
   ];
 
   return (
@@ -76,7 +81,7 @@ function ProfileGrid() {
                   {row.label}
                 </dt>
                 <dd className="mt-1 type-body-md text-primary">
-                  {"href" in row && row.href ? (
+                  {row.href ? (
                     <a
                       href={row.href}
                       className="underline-offset-2 hover:underline"
@@ -93,11 +98,12 @@ function ProfileGrid() {
         </ProseSection>
       </div>
       <div className="rounded border border-outline-variant/40 bg-surface-container-low p-6">
-        <h2 className="mb-3 type-headline-sm text-primary">Verification status</h2>
+        <h2 className="mb-3 type-headline-sm text-primary">Publication note</h2>
         <p className="mb-4 type-body-sm text-on-surface-variant">
-          Credential blocks on this portal remain placeholders until the advocate
-          confirms each public statement. Contact details await confirmation
-          before public launch.
+          Enrolment and association particulars are subject to Bar Council of
+          India Rule 36 website particulars and client/professional review before
+          public launch. No awards, case results, or promotional claims are
+          published.
         </p>
         <Placeholder />
       </div>

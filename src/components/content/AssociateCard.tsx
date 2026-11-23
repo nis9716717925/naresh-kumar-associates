@@ -9,6 +9,7 @@ type AssociateCardProps = {
   associate: Associate;
 };
 
+/** Names and photographs only — no biographies or credentials. */
 export function AssociateCard({ associate }: AssociateCardProps) {
   const [photoReady, setPhotoReady] = useState(false);
 
@@ -42,24 +43,16 @@ export function AssociateCard({ associate }: AssociateCardProps) {
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-4 text-center">
             <MaterialIcon name="person" className="text-4xl text-outline" />
             <span className="type-label-sm uppercase tracking-wider text-on-surface-variant">
-              Photo placeholder
+              Photo pending
             </span>
             <span className="max-w-[12rem] break-all type-body-sm text-outline">
-              Replace at {associate.imageSrc}
+              Place client photo at {associate.imageSrc}
             </span>
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-1 p-5">
+      <div className="p-5">
         <h3 className="type-headline-sm text-primary">{associate.name}</h3>
-        <p className="type-label-sm uppercase tracking-widest text-secondary">
-          {associate.designation}
-        </p>
-        {associate.spellingNote && (
-          <p className="mt-2 type-body-sm text-on-surface-variant">
-            [CONFIRM: {associate.spellingNote}]
-          </p>
-        )}
       </div>
     </article>
   );

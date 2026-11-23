@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BciDisclaimerBox } from "@/components/content/BciDisclaimerBox";
+import { WhatsAppLink } from "@/components/content/WhatsAppLink";
 import { Button } from "@/components/ui/Button";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { PageHero } from "@/components/ui/PageHero";
@@ -21,7 +22,7 @@ export default function HomePage() {
         withImage
         eyebrow="Regulated informational portal under Rule 36"
         title={`${siteConfig.practiceName}`}
-        description={`${siteConfig.professionalDescriptor}. Informational material regarding litigation forums and professional standing, presented with institutional restraint. This portal does not solicit work.`}
+        description={`${siteConfig.professionalDescriptor} · ${siteConfig.practiceStructure}. ${siteConfig.yearsOfPracticeLabel}. Informational material regarding litigation forums and professional standing. This portal does not solicit work.`}
       >
         <div className="mb-8 flex flex-col gap-3 sm:mb-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
           <Button href="/practice-areas" variant="surface" className="w-full sm:w-auto">
@@ -35,7 +36,7 @@ export default function HomePage() {
           <span className="flex min-w-0 items-start gap-1.5">
             <MaterialIcon name="verified" className="mt-0.5 shrink-0 text-base text-secondary-fixed" />
             <span className="min-w-0 break-words leading-snug">
-              Principal Advocate:{" "}
+              {siteConfig.principalTitle}:{" "}
               <strong className="font-medium text-surface">
                 {siteConfig.advocateName}
               </strong>
@@ -45,10 +46,20 @@ export default function HomePage() {
             <MaterialIcon name="badge" className="mt-0.5 shrink-0 text-base text-secondary-fixed" />
             <span className="min-w-0 break-words leading-snug">
               Enrolment:{" "}
-              <strong className="font-medium text-surface">{siteConfig.barEnrolment}</strong>
+              <strong className="font-medium text-surface">
+                {siteConfig.barEnrolment}
+              </strong>{" "}
+              ({siteConfig.barCouncil})
             </span>
           </span>
-          <Placeholder className="w-fit max-w-full normal-case tracking-normal" />
+          <span className="flex min-w-0 items-start gap-1.5">
+            <MaterialIcon name="schedule" className="mt-0.5 shrink-0 text-base text-secondary-fixed" />
+            <span className="min-w-0 break-words leading-snug">
+              <strong className="font-medium text-surface">
+                {siteConfig.yearsOfPracticeLabel}
+              </strong>
+            </span>
+          </span>
         </div>
       </PageHero>
 
@@ -56,7 +67,7 @@ export default function HomePage() {
         id="forums"
         eyebrow="Courts & Forums"
         title="Client-Supplied Forums & Practice Focus"
-        description="The following listings were supplied by the client. They are informational references only — not claims of exclusive practice, specialisation, or guaranteed outcomes. Delhi High Court is excluded pending confirmation (crossed out in source notes)."
+        description="The following listings were supplied by the client. They are informational references only — not claims of exclusive practice, specialisation, or guaranteed outcomes. Delhi High Court is excluded from this list per client instruction. Additional forums may be added when named."
       >
         <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {forumCards.map((card) => (
@@ -159,7 +170,8 @@ export default function HomePage() {
       >
         <div className="mx-auto mb-8 max-w-xl text-center sm:mb-12 lg:mb-16">
           <p className="type-body-md text-on-surface-variant">
-            Qualification and experience details use placeholders until verified by the advocate.
+            Client-supplied academic and professional particulars. Subject to
+            Rule 36 review before public emphasis.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-5 text-left sm:gap-8 md:grid-cols-3">
@@ -167,28 +179,24 @@ export default function HomePage() {
             {
               icon: "school",
               title: "Academic Qualifications",
-              items: [
-                "[PLACEHOLDER: LL.M. — University]",
-                "[PLACEHOLDER: LL.B. — University]",
-                "[PLACEHOLDER: Undergraduate degree]",
-              ],
+              items: [...siteConfig.qualifications],
             },
             {
               icon: "verified_user",
               title: "Bar Enrolments",
               items: [
                 siteConfig.barEnrolment,
-                "[PLACEHOLDER: Bar association membership]",
-                siteConfig.jurisdiction,
+                siteConfig.barCouncil,
+                ...siteConfig.barAssociations,
               ],
             },
             {
-              icon: "menu_book",
-              title: "Scholarly Affiliations",
+              icon: "schedule",
+              title: "Professional Experience",
               items: [
-                "[PLACEHOLDER: Professional affiliation]",
-                "[PLACEHOLDER: Research contributor]",
-                "[PLACEHOLDER: Pending verification]",
+                siteConfig.yearsOfPracticeLabel,
+                siteConfig.practiceStructure,
+                siteConfig.jurisdiction,
               ],
             },
           ].map((pillar) => (
@@ -304,6 +312,7 @@ export default function HomePage() {
               label={siteConfig.officePhone}
               note={siteConfig.officePhoneNote}
             />
+            <WhatsAppLink variant="row" />
             <div className="rounded border border-outline-variant/30 bg-surface-container-low p-4 text-xs text-on-surface-variant">
               <strong className="mb-1 block type-label-sm uppercase text-primary">
                 Court sittings note
@@ -311,9 +320,12 @@ export default function HomePage() {
               During judicial sessions, in-person chamber visits are subject to court schedules and prior docketing where applicable. Office hours:{" "}
               {siteConfig.officeHours}.
             </div>
-            <Button href="/contact" variant="primary" className="w-full sm:w-auto">
-              Inquire
-            </Button>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button href="/contact" variant="primary" className="w-full sm:w-auto">
+                Inquire
+              </Button>
+              <WhatsAppLink className="w-full sm:w-auto" />
+            </div>
           </div>
           <div className="min-w-0 lg:col-span-7">
             <BciDisclaimerBox compact />

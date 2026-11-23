@@ -8,8 +8,10 @@ type NkaLogoProps = {
 };
 
 /**
- * Replaceable NKA mark. Drop final artwork at /public/images/logo-nka.svg
- * (or .png) and set useImageAsset to true when ready.
+ * Replaceable NKA mark for Naresh Kumar & Associates.
+ * When the client supplies the final logo, place it at
+ * /public/images/logo-nka.svg (or .png) and set useImageAsset to true.
+ * Then update favicon.ico from the same asset. Do not invent a final logo.
  */
 const useImageAsset = false;
 

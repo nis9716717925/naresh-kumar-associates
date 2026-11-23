@@ -22,16 +22,10 @@ const grouped = {
     "/contact",
     "/faq",
   ],
-  Applications: [
-    "/applications",
-    "/applications/junior-advocate",
-    "/applications/internship",
-    "/applications/empanelment",
-  ],
   Legal: ["/disclaimer", "/privacy", "/terms"],
   Resources: [
-    "/resources/articles",
     "/resources/updates",
+    "/resources/articles",
     "/resources/news",
     "/resources/guides",
     "/resources/legal-faq",
@@ -77,7 +71,7 @@ export default function SitemapPage() {
 
 function SitemapGroups() {
   return (
-    <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
       {Object.entries(grouped).map(([title, routes]) => (
         <div key={title}>
           <h2 className="mb-4 type-headline-sm text-primary">{title}</h2>

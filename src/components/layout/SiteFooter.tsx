@@ -2,6 +2,7 @@ import Link from "next/link";
 import { footerNav, isNavVisible, mainNav, siteConfig } from "@/lib/site";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { SocialLinks } from "@/components/content/SocialLinks";
+import { WhatsAppLink } from "@/components/content/WhatsAppLink";
 
 export function SiteFooter() {
   const year = siteConfig.copyrightYear;
@@ -19,8 +20,9 @@ export function SiteFooter() {
               {siteConfig.professionalDescriptor} · {siteConfig.logoInitials}
             </p>
             <p className="mt-4 max-w-sm type-body-sm leading-relaxed text-inverse-on-surface/75">
-              Informational portal for {siteConfig.advocateName}, Principal
-              Advocate. {siteConfig.structureDisclaimer}
+              Informational portal for {siteConfig.advocateName},{" "}
+              {siteConfig.principalTitle} ({siteConfig.practiceStructure}).{" "}
+              {siteConfig.structureDisclaimer}
             </p>
             <div className="mt-5 rounded border border-outline-variant/25 bg-primary-container/50 p-3">
               <SocialLinks className="[&_p]:text-secondary-fixed [&_p.type-body-sm]:text-inverse-on-surface/70" />
@@ -110,12 +112,15 @@ export function SiteFooter() {
                 </a>
               </li>
             </ul>
-            <Link
-              href="/contact"
-              className="mt-5 inline-flex w-full items-center justify-center rounded bg-surface px-4 py-2.5 type-label-sm uppercase tracking-wider text-primary transition-colors hover:bg-secondary-fixed sm:w-auto"
-            >
-              Inquire
-            </Link>
+            <div className="mt-5 flex flex-col gap-2 sm:items-start">
+              <Link
+                href="/contact"
+                className="inline-flex w-full items-center justify-center rounded bg-surface px-4 py-2.5 type-label-sm uppercase tracking-wider text-primary transition-colors hover:bg-secondary-fixed sm:w-auto"
+              >
+                Inquire
+              </Link>
+              <WhatsAppLink className="w-full border-outline-variant/40 bg-transparent text-surface hover:border-secondary-fixed sm:w-auto [&_.material-symbols-outlined]:text-secondary-fixed" />
+            </div>
           </div>
         </div>
 
@@ -127,8 +132,9 @@ export function SiteFooter() {
             This website is strictly informational and non-promotional. It does
             not constitute advertisement or solicitation of professional work
             under the Advocates Act, 1961 and Bar Council of India Rules. Contact
-            details and associate/application sections remain subject to client
-            confirmation and professional review before public launch.
+            details and associate listings remain subject to client confirmation
+            and professional review before public launch. Domain:{" "}
+            {siteConfig.domain}.
           </p>
         </div>
 

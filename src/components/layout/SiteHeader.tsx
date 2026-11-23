@@ -13,9 +13,7 @@ export function SiteHeader() {
   const drawerId = useId();
 
   const visibleNav = mainNav.filter(isNavVisible);
-  const showDraftPreview =
-    !publicationFlags.associatesConfirmed ||
-    !publicationFlags.applicationsLegallyApproved;
+  const showDraftPreview = !publicationFlags.associatesConfirmed;
 
   useEffect(() => {
     setOpen(false);

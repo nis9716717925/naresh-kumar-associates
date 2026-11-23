@@ -1,6 +1,7 @@
 /**
- * Central site configuration for Naresh Kumar & Associates.
- * Content marked awaitingConfirmation must not be treated as published until client + legal review.
+ * Central site configuration — Naresh Kumar & Associates (Individual Practice).
+ * Domain: youradvocates.in
+ * Do not invent emails, social URLs, additional courts, or associate photos.
  */
 
 export type PublicationFlags = {
@@ -8,68 +9,84 @@ export type PublicationFlags = {
   contactsConfirmed: boolean;
   /** Associate names/photos confirmed + BCI-compliant to display */
   associatesConfirmed: boolean;
-  /** Application portals legally/professionally approved */
-  applicationsLegallyApproved: boolean;
   /** Social profile URLs confirmed */
   socialUrlsConfirmed: boolean;
-  /** Domain / production URL finalized */
-  domainFinalized: boolean;
+  /** Domain connected to production hosting */
+  domainConnected: boolean;
+  /** Client personal final review before publication */
+  clientFinalReviewComplete: boolean;
 };
 
 export const publicationFlags: PublicationFlags = {
   contactsConfirmed: false,
   associatesConfirmed: false,
-  applicationsLegallyApproved: false,
   socialUrlsConfirmed: false,
-  domainFinalized: false,
+  domainConnected: false,
+  clientFinalReviewComplete: false,
 };
 
+const defaultSiteUrl = "https://youradvocates.in";
+
 export const siteConfig = {
-  title: "Naresh Kumar & Associates — Advocates & Solicitors",
+  title: "Naresh Kumar & Associates — Advocate",
   description:
-    "Informational portal for Naresh Kumar & Associates, Advocates & Solicitors. Published subject to Bar Council of India Rule 36. Educational content only; no solicitation.",
-  /** Do not invent a domain — configure via NEXT_PUBLIC_SITE_URL when finalized */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "",
-  /** Proposed practice name — not verified as LLP/partnership/company */
+    "Informational portal for Advocate Naresh Kumar (Individual Practice), presented under the branding Naresh Kumar & Associates. Subject to Bar Council of India Rule 36. Educational content only; no solicitation.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl,
+  domain: "youradvocates.in",
   practiceName: "Naresh Kumar & Associates",
-  professionalDescriptor: "Advocates & Solicitors",
+  professionalDescriptor: "Advocate",
+  practiceStructure: "Individual Practice",
   logoInitials: "NKA",
-  /** Principal advocate */
   advocateName: "Naresh Kumar",
-  principalTitle: "Principal Advocate",
-  /** Bar enrolment not supplied — keep placeholder */
-  barEnrolment: "[PLACEHOLDER: Bar Council Enrolment Number — pending confirmation]",
-  jurisdiction: "Supreme Court of India and other forums as listed (pending confirmation)",
+  principalTitle: "Advocate",
+  barEnrolment: "D/327/96",
+  barCouncil: "Bar Council of Delhi",
+  barAssociations: [
+    "Saket Bar Association",
+    "Delhi High Court Bar Association",
+  ] as const,
+  qualifications: ["M.Com.", "LL.B."] as const,
+  yearsOfPracticeLabel: "More than 30 years of practice",
+  jurisdiction:
+    "Supreme Court of India and other forums as listed (informational — pending confirmation of exclusive practice claims)",
   chamberAddress:
     "Chamber No. 772, Lawyers Chamber Block, Saket Court Complex, Saket, New Delhi - 110017, India.",
   registeredOfficeAddress:
     "37, Amrit Nagar, South Extension Part-I, New Delhi - 110049, India.",
-  /** Primary mobile */
   mobile: "9312838384",
   mobileTel: "tel:+919312838384",
-  /** Additional advocate contact */
   additionalMobile: "7827448384",
   additionalMobileTel: "tel:+917827448384",
-  /** Office telephone — note: digit count to confirm with client (011-400045298) */
+  /** Primary WhatsApp — approved by client; uses Personal Contact Number 1 */
+  whatsappNumber: "9312838384",
+  whatsappUrl: "https://wa.me/919312838384",
+  whatsappEnabled: true,
   officePhone: "011-400045298",
   officePhoneTel: "tel:+9111400045298",
   officePhoneNote:
     "[CONFIRM: Office telephone digit sequence as written — 011-400045298]",
-  /** Main professional email — not supplied */
+  /**
+   * Primary email: client indicated “youradvocate…@gmail.com” — exact spelling unconfirmed.
+   * Set NEXT_PUBLIC_CONTACT_EMAIL when confirmed. Do not invent.
+   */
   email:
     process.env.NEXT_PUBLIC_CONTACT_EMAIL ??
-    "[PLACEHOLDER: Professional contact email — pending]",
-  /** Separate applications inbox — info@… domain TBD */
-  applicationsEmail:
-    process.env.NEXT_PUBLIC_APPLICATIONS_EMAIL ??
-    "[PLACEHOLDER: Applications email — info@ domain pending]",
+    "[CONFIRM: youradvocate…@gmail.com — exact spelling pending]",
+  emailConfirmed: Boolean(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
+  /**
+   * Secondary / info@ email — domain to be confirmed (intended: info@youradvocates.in).
+   * Set NEXT_PUBLIC_INFO_EMAIL when confirmed.
+   */
+  infoEmail:
+    process.env.NEXT_PUBLIC_INFO_EMAIL ??
+    "[PLACEHOLDER: info@ email — domain pending confirmation]",
+  infoEmailConfirmed: Boolean(process.env.NEXT_PUBLIC_INFO_EMAIL),
   officeHours: "[PLACEHOLDER: Office hours — pending confirmation]",
   copyrightYear: "2026",
   structureDisclaimer:
-    "Proposed branding as “Naresh Kumar & Associates, Advocates & Solicitors”. Not represented as a registered LLP, partnership firm, or company unless and until verified.",
+    "Individual Practice of Advocate Naresh Kumar. Public-facing branding “Naresh Kumar & Associates” does not represent a registered LLP, partnership firm, or company. Permissibility of the proposed public-facing name should be confirmed before publication.",
 } as const;
 
-/** Configurable social URLs — leave empty until client confirms */
 export const socialLinks = {
   instagram: process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM ?? "",
   facebook: process.env.NEXT_PUBLIC_SOCIAL_FACEBOOK ?? "",
@@ -81,7 +98,6 @@ export type NavItem = {
   label: string;
   href: string;
   children?: NavItem[];
-  /** Hide from public nav until flag true */
   requiresFlag?: keyof PublicationFlags;
 };
 
@@ -93,38 +109,31 @@ export const mainNav: NavItem[] = [
   { label: "Forums", href: "/practice-information" },
   {
     label: "Resources",
-    href: "/resources/articles",
+    href: "/resources/updates",
     children: [
+      { label: "Law Updates", href: "/resources/updates" },
       { label: "Articles", href: "/resources/articles" },
-      { label: "Updates", href: "/resources/updates" },
       { label: "News", href: "/resources/news" },
       { label: "Guides", href: "/resources/guides" },
       { label: "Legal FAQ", href: "/resources/legal-faq" },
     ],
   },
-  {
-    label: "Applications",
-    href: "/applications",
-    requiresFlag: "applicationsLegallyApproved",
-  },
   { label: "Contact", href: "/contact" },
   { label: "Disclaimer", href: "/disclaimer" },
 ];
 
-/** Nav items shown even when draft (with draft badge) for internal preview */
 export const previewNavExtras: NavItem[] = [
   { label: "Associates (draft)", href: "/associates" },
-  { label: "Applications (draft)", href: "/applications" },
 ];
 
 export const footerNav: NavItem[] = [
   { label: "Bar Council Disclaimer", href: "/disclaimer" },
   { label: "Practice Focus", href: "/practice-areas" },
-  { label: "Legal Resources", href: "/resources/articles" },
+  { label: "Law Updates", href: "/resources/updates" },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Use", href: "/terms" },
   { label: "Sitemap", href: "/sitemap" },
-  { label: "Office Registry", href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function isNavVisible(item: NavItem): boolean {
@@ -138,7 +147,6 @@ export type PracticeArea = {
   category: string;
   summary: string;
   statutes: string;
-  /** Client listed this as a practice/forum focus */
   clientSupplied: boolean;
   verified: boolean;
 };
@@ -214,13 +222,12 @@ export const practiceAreas: PracticeArea[] = [
     clientSupplied: true,
     verified: false,
   },
-  // Remaining inventory areas — informational, not client-asserted for this practice
   {
     slug: "civil-law",
     title: "Civil Law",
     category: "CIVIL & PROCEDURE",
     summary:
-      "General informational page on civil remedies. Not asserted as a confirmed practice focus for this chamber unless verified.",
+      "General informational page on civil remedies. Not asserted as a confirmed exclusive practice focus unless verified.",
     statutes: "CPC 1908, Specific Relief Act 1963",
     clientSupplied: false,
     verified: false,
@@ -230,7 +237,7 @@ export const practiceAreas: PracticeArea[] = [
     title: "Criminal Law",
     category: "CRIMINAL JURISPRUDENCE",
     summary:
-      "General informational page. Not asserted as a confirmed practice focus unless verified.",
+      "General informational page. Not asserted as a confirmed exclusive practice focus unless verified.",
     statutes: "BNSS 2023 / CrPC, BNS 2023 / IPC",
     clientSupplied: false,
     verified: false,
@@ -240,7 +247,7 @@ export const practiceAreas: PracticeArea[] = [
     title: "Property & Real Estate Law",
     category: "PROPERTY & EQUITY",
     summary:
-      "General informational page. Not asserted as a confirmed practice focus unless verified.",
+      "General informational page. Not asserted as a confirmed exclusive practice focus unless verified.",
     statutes: "Transfer of Property Act, Registration Act 1908",
     clientSupplied: false,
     verified: false,
@@ -250,7 +257,7 @@ export const practiceAreas: PracticeArea[] = [
     title: "Family Law",
     category: "FAMILY & GUARDIANSHIP",
     summary:
-      "General informational page. Not asserted as a confirmed practice focus unless verified.",
+      "General informational page. Not asserted as a confirmed exclusive practice focus unless verified.",
     statutes: "Guardian and Wards Act, applicable personal laws",
     clientSupplied: false,
     verified: false,
@@ -260,7 +267,7 @@ export const practiceAreas: PracticeArea[] = [
     title: "Matrimonial Law",
     category: "MATRIMONIAL",
     summary:
-      "General informational page. Not asserted as a confirmed practice focus unless verified.",
+      "General informational page. Not asserted as a confirmed exclusive practice focus unless verified.",
     statutes: "Special Marriage Act, applicable matrimonial statutes",
     clientSupplied: false,
     verified: false,
@@ -270,7 +277,7 @@ export const practiceAreas: PracticeArea[] = [
     title: "Labour & Employment Law",
     category: "LABOUR & EMPLOYMENT",
     summary:
-      "General informational page. Not asserted as a confirmed practice focus unless verified.",
+      "General informational page. Not asserted as a confirmed exclusive practice focus unless verified.",
     statutes: "Industrial Disputes Act, applicable labour codes",
     clientSupplied: false,
     verified: false,
@@ -280,7 +287,7 @@ export const practiceAreas: PracticeArea[] = [
     title: "Cyber Law",
     category: "CYBER & IT",
     summary:
-      "General informational page. Not asserted as a confirmed practice focus unless verified.",
+      "General informational page. Not asserted as a confirmed exclusive practice focus unless verified.",
     statutes: "IT Act, 2000; Digital Personal Data Protection Act",
     clientSupplied: false,
     verified: false,
@@ -295,144 +302,108 @@ export const clientSuppliedPracticeAreas = practiceAreas.filter(
   (a) => a.clientSupplied,
 );
 
-/** Courts & forums from handwritten notes — Delhi High Court excluded (crossed out) */
+/** Courts & forums — Delhi High Court excluded per client. Additional forums pending names. */
 export const forumCards = [
   {
     icon: "account_balance",
     title: "Supreme Court of India",
     description:
-      "Client-supplied forum listing. Informational reference only — pending confirmation for public publication.",
-    label: "Apex Court · Awaiting confirmation",
+      "Client-supplied forum listing. Informational reference only — not a claim of exclusive practice.",
+    label: "Apex Court · Client-supplied",
   },
   {
     icon: "gavel",
     title: "National Consumer Disputes Redressal Commission (NCDRC)",
     description:
       "Client-supplied forum listing for consumer dispute matters. Not a claim of exclusive practice.",
-    label: "Consumer Forum · Awaiting confirmation",
+    label: "Consumer Forum · Client-supplied",
   },
   {
     icon: "account_balance_wallet",
     title: "Debt Recovery Tribunal (DRT)",
     description:
       "Client-supplied forum listing for debt recovery proceedings. Informational only.",
-    label: "Debt Recovery · Awaiting confirmation",
+    label: "Debt Recovery · Client-supplied",
   },
   {
     icon: "corporate_fare",
     title: "National Company Law Tribunal (NCLT)",
     description:
       "Client-supplied forum listing for company-law and related tribunal matters.",
-    label: "Company Law · Awaiting confirmation",
+    label: "Company Law · Client-supplied",
   },
   {
     icon: "handshake",
     title: "Arbitration Matters",
     description:
       "Client-supplied listing for arbitration-related work. Educational overview of ADR frameworks.",
-    label: "Arbitration · Awaiting confirmation",
+    label: "Arbitration · Client-supplied",
   },
   {
     icon: "balance",
     title: "Commercial Disputes",
     description:
       "Client-supplied listing for commercial dispute matters. Informational only.",
-    label: "Commercial · Awaiting confirmation",
+    label: "Commercial · Client-supplied",
   },
   {
     icon: "copyright",
     title: "Trademark / Intellectual Property Rights (IPR)",
     description:
       "Client-supplied listing for trademark and IPR-related matters.",
-    label: "IPR · Awaiting confirmation",
+    label: "IPR · Client-supplied",
   },
   {
     icon: "contract",
     title: "Corporate Contracts / Litigation",
     description:
       "Client-supplied listing for corporate contracts and related litigation.",
-    label: "Contracts · Awaiting confirmation",
+    label: "Contracts · Client-supplied",
   },
 ] as const;
 
 export type Associate = {
   id: string;
   name: string;
-  designation: string;
   /** Path under /public for replaceable photo */
   imageSrc: string;
   imageAlt: string;
   spellingNote?: string;
 };
 
+/** Associates — names and photographs only (per latest client instruction). */
 export const associates: Associate[] = [
   {
     id: "brij-pal",
     name: "Brij Pal",
-    designation: "Advocate",
     imageSrc: "/images/associates/brij-pal.jpg",
-    imageAlt: "Photograph placeholder for Brij Pal, Advocate",
+    imageAlt: "Photograph of Brij Pal",
   },
   {
     id: "sunil-kr-chawhan",
     name: "Sunil Kr. Chawhan",
-    designation: "Advocate",
     imageSrc: "/images/associates/sunil-kr-chawhan.jpg",
-    imageAlt: "Photograph placeholder for Sunil Kr. Chawhan, Advocate",
+    imageAlt: "Photograph of Sunil Kr. Chawhan",
     spellingNote: "Confirm spelling: Chawhan / Chauhan",
   },
   {
     id: "kaveri-sharma",
     name: "Ms. Kaveri Sharma",
-    designation: "Advocate",
     imageSrc: "/images/associates/kaveri-sharma.jpg",
-    imageAlt: "Photograph placeholder for Ms. Kaveri Sharma, Advocate",
+    imageAlt: "Photograph of Ms. Kaveri Sharma",
   },
   {
     id: "luv-kumar",
     name: "Luv Kumar",
-    designation: "Advocate",
     imageSrc: "/images/associates/luv-kumar.jpg",
-    imageAlt: "Photograph placeholder for Luv Kumar, Advocate",
+    imageAlt: "Photograph of Luv Kumar",
     spellingNote: "Confirm spelling: Luv / Love",
   },
   {
     id: "jatin-phogat",
     name: "Jatin Phogat",
-    designation: "Advocate",
     imageSrc: "/images/associates/jatin-phogat.jpg",
-    imageAlt: "Photograph placeholder for Jatin Phogat, Advocate",
-  },
-];
-
-export type ApplicationCategory = {
-  slug: "junior-advocate" | "internship" | "empanelment";
-  title: string;
-  purpose: string;
-  href: string;
-};
-
-export const applicationCategories: ApplicationCategory[] = [
-  {
-    slug: "junior-advocate",
-    title: "Junior Advocate Appointment",
-    purpose:
-      "Applications from advocates interested in appointment as Junior Advocates. Subject to professional and legal approval before public use.",
-    href: "/applications/junior-advocate",
-  },
-  {
-    slug: "internship",
-    title: "Student Internship",
-    purpose:
-      "Applications from students interested in internships. Subject to professional and legal approval before public use.",
-    href: "/applications/internship",
-  },
-  {
-    slug: "empanelment",
-    title: "Advocate Empanelment",
-    purpose:
-      "Applications from advocates interested in empanelment for delegation or assignment of briefs across courts. Subject to professional and legal approval before public use.",
-    href: "/applications/empanelment",
+    imageAlt: "Photograph of Jatin Phogat",
   },
 ];
 
@@ -455,17 +426,12 @@ export const siteFaq: FaqItem[] = [
   {
     question: "Is “Naresh Kumar & Associates” a registered firm or LLP?",
     answer:
-      "The name is proposed branding for this informational portal. The practice is not represented as a registered LLP, partnership, or company unless and until that structure is verified and confirmed for publication.",
-  },
-  {
-    question: "Are associate profiles and application portals public?",
-    answer:
-      "Associate listings and application workflows are prepared for the project but remain unpublished pending client confirmation and professional/legal approval under applicable BCI rules.",
+      "No. This is Individual Practice of Advocate Naresh Kumar. The name is proposed public-facing branding only and does not represent a registered LLP, partnership, or company.",
   },
   {
     question: "How is personal data handled?",
     answer:
-      "See the Privacy Policy. Enquiry and application data, if enabled, are used only to respond to the relevant administrative communication where permitted.",
+      "See the Privacy Policy. Enquiry data, if submitted, is used only to respond to the relevant administrative communication where permitted.",
   },
 ];
 
@@ -537,32 +503,45 @@ export function getArticle(slug: string): Article | undefined {
   return articles.find((a) => a.slug === slug);
 }
 
+/** Law Updates — structure ready; do not invent fabricated updates. */
+export type LawUpdate = {
+  slug: string;
+  title: string;
+  date: string;
+  source: string;
+  summary: string;
+  published: boolean;
+};
+
+export const lawUpdates: LawUpdate[] = [
+  // Intentionally empty of fabricated content. Add client-approved updates only.
+];
+
 export const missingInformation = [
-  "Bar Council enrolment number",
-  "Professional contact email (non-application)",
-  "Complete applications email (info@… domain)",
-  "Final website domain",
-  "Final logo artwork (NKA initials placeholder in use)",
+  "Exact primary Gmail spelling (youradvocate…@gmail.com)",
+  "Confirmed info@ email (intended domain youradvocates.in)",
+  "Final logo artwork file (NKA initials placeholder in use)",
+  "Favicon from final logo (when supplied)",
   "Office hours",
   "Confirmation of office telephone digit sequence (011-400045298)",
-  "Confirmation of contact numbers and both addresses before public launch",
-  "Associate photographs",
-  "Confirmation of associate name spellings (esp. Chawhan/Chauhan; Luv/Love)",
-  "Associate qualifications / enrolment details (if any to be shown)",
-  "Exact fields for Own Requirement Form and Candidate Form",
-  "Whether form fields are mandatory",
+  "Confirmation to publish contact numbers and addresses",
+  "Associate photographs (client-supplied files at /public/images/associates/)",
+  "Associate name spellings (esp. Chawhan/Chauhan; Luv/Love)",
+  "Associates’ permission for public name/photo display",
+  "Additional courts/forums names (client indicated YES — names not supplied)",
   "Social profile URLs (Instagram, Facebook, Twitter/X, LinkedIn)",
-  "Whether Delhi High Court should be listed (crossed out in notes — excluded)",
-  "Legal entity structure confirmation (sole practice vs firm/LLP)",
+  "Client-approved Law Update entries (titles, dates, sources)",
+  "Confirmation that public-facing name “Naresh Kumar & Associates” is permissible for Individual Practice",
+  "Domain DNS / Hostinger connection status for youradvocates.in",
+  "Client personal final review before publication",
 ] as const;
 
 export const pendingLegalApproval = [
-  "Public display of associate profiles with photographs",
-  "Junior Advocate appointment application portal",
-  "Student internship application portal",
-  "Advocate empanelment application portal",
-  "Public publication of contact numbers and addresses",
+  "Public display of associate names and photographs",
+  "Public publication of contact numbers, WhatsApp, and addresses",
+  "Publication of Bar Council enrolment and association particulars (BCI Schedule / Rule 36)",
   "Any solicitation-sensitive wording review under BCI Rule 36",
+  "Permissibility of proposed branding “Naresh Kumar & Associates” for Individual Practice",
 ] as const;
 
 export const allRoutes = [
@@ -575,11 +554,6 @@ export const allRoutes = [
   "/practice-areas",
   ...practiceAreas.map((a) => `/practice-areas/${a.slug}`),
   "/practice-information",
-  "/applications",
-  "/applications/junior-advocate",
-  "/applications/internship",
-  "/applications/empanelment",
-  "/applications/success",
   "/contact",
   "/contact/success",
   "/faq",

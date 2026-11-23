@@ -8,7 +8,7 @@ import { associates, publicationFlags, siteConfig } from "@/lib/site";
 export const metadata = {
   ...createPageMetadata(
     "Associates",
-    "Associate advocates — draft listing pending confirmation and BCI-compliant publication approval.",
+    "Names and photographs of associates — draft pending confirmation and professional approval.",
     "/associates",
   ),
   robots: publicationFlags.associatesConfirmed
@@ -17,29 +17,35 @@ export const metadata = {
 };
 
 export default function AssociatesPage() {
+  const spellingFlags = associates.filter((a) => a.spellingNote);
+
   return (
     <>
       <PageHero
         eyebrow="Associates"
-        title="Associate Advocates"
-        description={`Draft directory for ${siteConfig.practiceName}. Photographs are placeholders until supplied. Profiles remain unpublished pending confirmation and professional review.`}
+        title="Associates"
+        description={`Names and photographs only, for ${siteConfig.practiceName}. No biographies or credentials are published here.`}
       />
       <Section>
         <DraftNotice>
-          Do not publish associate profiles until the advocate confirms name
-          accuracy, photographs, and compliance with applicable Bar Council of
-          India rules. No fabricated qualifications or professional photographs
-          have been generated.
+          Do not publish until photographs are supplied by the client, spellings
+          are confirmed, associates consent, and display complies with applicable
+          Bar Council rules.
         </DraftNotice>
+        {spellingFlags.length > 0 && (
+          <ul className="mb-6 list-disc space-y-1 pl-5 type-body-sm text-on-surface-variant">
+            {spellingFlags.map((a) => (
+              <li key={a.id}>
+                {a.name}: {a.spellingNote}
+              </li>
+            ))}
+          </ul>
+        )}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {associates.map((associate) => (
             <AssociateCard key={associate.id} associate={associate} />
           ))}
         </div>
-        <p className="mt-8 type-body-sm text-on-surface-variant">
-          Replace photographs by placing image files at the paths shown on each
-          card under <code className="text-primary">/public/images/associates/</code>.
-        </p>
       </Section>
     </>
   );

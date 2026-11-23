@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(
   "About",
-  "Informational overview of Naresh Kumar & Associates and regulatory compliance.",
+  "About Advocate Naresh Kumar — Individual Practice under Naresh Kumar & Associates branding.",
   "/about",
 );
 
@@ -18,19 +18,20 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title={siteConfig.practiceName}
-        description={`${siteConfig.advocateName}, ${siteConfig.principalTitle} — ${siteConfig.professionalDescriptor}. This page provides informational material only and does not solicit work.`}
+        description={`${siteConfig.advocateName}, ${siteConfig.principalTitle} — ${siteConfig.practiceStructure}. ${siteConfig.yearsOfPracticeLabel}. This page provides informational material only and does not solicit work.`}
       />
       <Section>
         <div className="grid gap-8 lg:grid-cols-2">
           <ProseSection title="Practice identity">
             <p>
-              This portal presents {siteConfig.practiceName} as proposed branding
-              for informational purposes. {siteConfig.structureDisclaimer}
+              This portal presents {siteConfig.practiceName} as public-facing
+              branding for the Individual Practice of {siteConfig.advocateName}.{" "}
+              {siteConfig.structureDisclaimer}
             </p>
             <p>
-              Professional biography, chambers narrative, and court practice
-              descriptions remain placeholders until verified by the advocate.
-              No testimonials, success rates, or promotional claims are published.
+              Enrolment: {siteConfig.barEnrolment} ({siteConfig.barCouncil}).
+              Academic qualifications: {siteConfig.qualifications.join("; ")}.
+              Professional experience: {siteConfig.yearsOfPracticeLabel}.
             </p>
           </ProseSection>
           <ProseSection title="Regulatory framework">
@@ -41,8 +42,8 @@ export default function AboutPage() {
             </p>
             <p>
               Users should consult independent counsel for case-specific guidance.
-              Associate profiles and application portals remain draft until
-              client confirmation and professional/legal approval.
+              Associate listings remain draft until confirmation and professional
+              approval.
             </p>
           </ProseSection>
         </div>
@@ -50,11 +51,11 @@ export default function AboutPage() {
           <Button href="/profile" variant="ghost">
             View profile
           </Button>
+          <Button href="/experience" variant="ghost">
+            Experience
+          </Button>
           <Button href="/practice-information" variant="ghost">
             View forums
-          </Button>
-          <Button href="/associates" variant="ghost">
-            Associates (draft)
           </Button>
         </div>
       </Section>

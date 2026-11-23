@@ -108,19 +108,20 @@
       "device": "DESKTOP",
       "implementedRoute": "/resources/articles"
     },
-    "applications-hub-desktop": {
-      "id": "08e134ccf2434097b27d7715cb4236f9",
-      "html": "projects/3582213407744420660/files/79933da42b5841c8816246660ce10efd",
-      "screenshot": "projects/3582213407744420660/files/b969a5d0e3f74cce90b167f9db25838d",
+    "law-updates-desktop": {
+      "id": "706feb9431f244aa9024003be8cf9b36",
+      "html": "projects/3582213407744420660/files/2b4ebaf0f1e049d28178292f94138411",
+      "screenshot": "projects/3582213407744420660/files/d88e2b74f8854d6aa9822ad08c04c2e3",
       "device": "DESKTOP",
-      "implementedRoute": "/applications"
+      "implementedRoute": "/resources/updates"
     }
   },
+  "removedScreens": [
+    "Applications hub — client confirmed application forms are not required"
+  ],
   "pendingOrUnconfirmedStitchScreens": [
-    "Associates page — Stitch reported existing design but list_screens does not return a stable screen id; implemented with design-system patterns",
+    "Associates page — names/photos only; await client photo assets",
     "Remaining practice-area detail page Stitch variants",
-    "Dedicated mobile variants for every inner page",
-    "Legal News / Guides / Resources Legal FAQ dedicated screens (may exist from background jobs)",
-    "Article Detail dedicated screen confirmation"
+    "Dedicated mobile variants for every inner page"
   ]
 }

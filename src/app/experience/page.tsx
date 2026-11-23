@@ -1,29 +1,13 @@
-import { ProseSection } from "@/components/content/ProseSection";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { createPageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(
-  "Professional Experience",
-  "Informational experience summary with placeholders.",
+  "Experience",
+  "Professional experience of Advocate Naresh Kumar.",
   "/experience",
 );
-
-const experienceItems = [
-  {
-    title: "[PLACEHOLDER: Years of practice]",
-    body: "[PLACEHOLDER: Neutral description of forums and types of work — no case outcomes]",
-  },
-  {
-    title: "[PLACEHOLDER: Court practice]",
-    body: "[PLACEHOLDER: High Court / Supreme Court appearances — factual only when verified]",
-  },
-  {
-    title: "[PLACEHOLDER: Advisory roles]",
-    body: "[PLACEHOLDER: Non-promotional description of advisory capacity]",
-  },
-];
 
 export default function ExperiencePage() {
   return (
@@ -31,16 +15,23 @@ export default function ExperiencePage() {
       <PageHero
         eyebrow="Experience"
         title="Professional Experience"
-        description="Chronological and forum-based experience information. Marketing language and success metrics are not used."
+        description="Factual experience particulars as supplied by the client. No case outcomes or promotional claims."
       />
       <Section>
-        <Placeholder className="mb-8" />
-        <div className="space-y-6">
-          {experienceItems.map((item) => (
-            <ProseSection key={item.title} title={item.title}>
-              <p>{item.body}</p>
-            </ProseSection>
-          ))}
+        <div className="rounded border border-outline-variant/40 bg-surface-container-lowest p-6 sm:p-8">
+          <h2 className="type-headline-sm text-primary">
+            {siteConfig.yearsOfPracticeLabel}
+          </h2>
+          <p className="mt-3 type-body-md text-on-surface-variant">
+            {siteConfig.advocateName}, {siteConfig.principalTitle},{" "}
+            {siteConfig.practiceStructure}. Experience is stated as supplied by
+            the client and is subject to professional-conduct review before
+            public emphasis.
+          </p>
+          <p className="mt-4 type-body-sm text-on-surface-variant">
+            Forums referenced elsewhere on this site are informational listings
+            only and do not assert exclusive practice or guaranteed results.
+          </p>
         </div>
       </Section>
     </>

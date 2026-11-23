@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { DraftNotice } from "@/components/content/DraftNotice";
 import { SocialLinks } from "@/components/content/SocialLinks";
+import { WhatsAppLink } from "@/components/content/WhatsAppLink";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { PageHero } from "@/components/ui/PageHero";
@@ -10,7 +11,7 @@ import { publicationFlags, siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(
   "Contact Information",
-  "Chamber registry and administrative enquiry channel.",
+  "Chamber registry and administrative enquiry channel for Advocate Naresh Kumar.",
   "/contact",
 );
 
@@ -25,17 +26,18 @@ export default function ContactPage() {
       <Section>
         {!publicationFlags.contactsConfirmed && (
           <DraftNotice>
-            Contact numbers and addresses are integrated for project review but
-            must not be treated as publicly launched until the client confirms
-            accuracy. Do not publish until confirmation.
+            Contact numbers, WhatsApp, and addresses are integrated for project
+            review. Confirm the office telephone digits and exact email spellings
+            before public launch. Do not treat unverified emails as live mailto
+            links.
           </DraftNotice>
         )}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="space-y-5 sm:space-y-6 lg:col-span-5">
             <ContactRow
               icon="person"
-              title="Principal Advocate"
-              text={`${siteConfig.advocateName}, ${siteConfig.principalTitle}`}
+              title="Advocate"
+              text={`${siteConfig.advocateName} — ${siteConfig.practiceStructure}`}
             />
             <ContactRow
               icon="location_on"
@@ -47,21 +49,25 @@ export default function ContactPage() {
               title="Registered office"
               text={siteConfig.registeredOfficeAddress}
             />
-            <ContactRow icon="mail" title="Professional email" text={siteConfig.email} />
-            <ContactRow
-              icon="alternate_email"
-              title="Applications email"
-              text={siteConfig.applicationsEmail}
+            <EmailRow
+              title="Primary email"
+              value={siteConfig.email}
+              confirmed={siteConfig.emailConfirmed}
+            />
+            <EmailRow
+              title="Secondary email (info@)"
+              value={siteConfig.infoEmail}
+              confirmed={siteConfig.infoEmailConfirmed}
             />
             <ContactLinkRow
               icon="call"
-              title="Mobile"
+              title="Personal contact 1"
               href={siteConfig.mobileTel}
               label={siteConfig.mobile}
             />
             <ContactLinkRow
               icon="call"
-              title="Additional advocate contact"
+              title="Personal contact 2"
               href={siteConfig.additionalMobileTel}
               label={siteConfig.additionalMobile}
             />
@@ -72,6 +78,7 @@ export default function ContactPage() {
               label={siteConfig.officePhone}
               note={siteConfig.officePhoneNote}
             />
+            <WhatsAppLink variant="row" />
             <ContactRow
               icon="schedule"
               title="Office hours"
@@ -86,8 +93,6 @@ export default function ContactPage() {
             </h2>
             <p className="mb-6 type-body-sm text-on-surface-variant">
               Complete the registry dispatch for administrative communication.
-              Application-category submissions use the separate Applications
-              workflows when approved.
             </p>
             <EnquiryForm />
           </div>
@@ -112,6 +117,37 @@ function ContactRow({
       <div className="min-w-0">
         <h3 className="type-headline-sm text-primary">{title}</h3>
         <p className="mt-1 break-words type-body-sm text-on-surface-variant">{text}</p>
+      </div>
+    </div>
+  );
+}
+
+function EmailRow({
+  title,
+  value,
+  confirmed,
+}: {
+  title: string;
+  value: string;
+  confirmed: boolean;
+}) {
+  return (
+    <div className="flex items-start gap-3 sm:gap-4">
+      <MaterialIcon name="mail" className="mt-1 shrink-0 text-secondary" />
+      <div className="min-w-0">
+        <h3 className="type-headline-sm text-primary">{title}</h3>
+        {confirmed ? (
+          <a
+            href={`mailto:${value}`}
+            className="mt-1 block break-words type-body-sm text-on-surface-variant underline-offset-2 hover:underline"
+          >
+            {value}
+          </a>
+        ) : (
+          <p className="mt-1 break-words type-body-sm text-on-surface-variant">
+            {value}
+          </p>
+        )}
       </div>
     </div>
   );

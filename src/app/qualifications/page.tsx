@@ -1,27 +1,22 @@
-import { ProseSection } from "@/components/content/ProseSection";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { createPageMetadata } from "@/lib/metadata";
+import { siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(
-  "Professional Qualifications",
-  "Academic and professional qualifications — placeholder content.",
+  "Qualifications",
+  "Academic qualifications of Advocate Naresh Kumar.",
   "/qualifications",
 );
 
-const qualificationPlaceholders = [
+const rows = [
   {
-    degree: "[PLACEHOLDER: Master of Laws (LL.M.)]",
-    detail: "[PLACEHOLDER: Specialization, institution, year]",
+    degree: "Master of Commerce (M.Com.)",
+    detail: "Academic qualification as supplied by the client.",
   },
   {
-    degree: "[PLACEHOLDER: Bachelor of Laws (LL.B.)]",
-    detail: "[PLACEHOLDER: Faculty of Law, university, year]",
-  },
-  {
-    degree: "[PLACEHOLDER: Undergraduate degree]",
-    detail: "[PLACEHOLDER: Department, university, year]",
+    degree: "Bachelor of Laws (LL.B.)",
+    detail: "Academic qualification as supplied by the client.",
   },
 ];
 
@@ -30,23 +25,27 @@ export default function QualificationsPage() {
     <>
       <PageHero
         eyebrow="Qualifications"
-        title="Professional Qualifications"
-        description="Educational pedigree listed for informational transparency. No ranking or comparative claims."
+        title="Academic Qualifications"
+        description={`${siteConfig.advocateName} — ${siteConfig.practiceStructure}.`}
       />
       <Section>
-        <div className="mb-6 flex items-center gap-3">
-          <Placeholder />
-          <span className="type-body-sm text-on-surface-variant">
-            Pending advocate verification of each entry
-          </span>
-        </div>
-        <div className="space-y-6">
-          {qualificationPlaceholders.map((item) => (
-            <ProseSection key={item.degree} title={item.degree}>
-              <p>{item.detail}</p>
-            </ProseSection>
+        <ul className="space-y-6">
+          {rows.map((row) => (
+            <li
+              key={row.degree}
+              className="border-b border-outline-variant/30 pb-6"
+            >
+              <h2 className="type-headline-sm text-primary">{row.degree}</h2>
+              <p className="mt-2 type-body-sm text-on-surface-variant">
+                {row.detail}
+              </p>
+            </li>
           ))}
-        </div>
+        </ul>
+        <p className="mt-8 type-body-sm text-on-surface-variant">
+          Institution names and years were not supplied. Do not invent missing
+          academic particulars.
+        </p>
       </Section>
     </>
   );
