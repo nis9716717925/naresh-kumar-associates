@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
+import { NkaMark } from "@/components/brand/NkaMark";
 
 type NkaLogoProps = {
   href?: string;
@@ -11,8 +12,9 @@ type NkaLogoProps = {
 
 /**
  * Brand mark for Naresh Kumar & Associates.
- * Assets: /public/images/logo-nka.svg and logo-nka.jpg
- * Replace with the client’s final approved artwork when supplied.
+ * Uses an inline SVG monogram so the logo still renders if /public assets
+ * are missing from a Hostinger build. Replace NkaMark when the client
+ * supplies final approved artwork.
  */
 export function NkaLogo({
   href = "/",
@@ -20,23 +22,11 @@ export function NkaLogo({
   showText = true,
   inverted = false,
 }: NkaLogoProps) {
-  const mark = (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/images/logo-nka.svg"
-      alt=""
-      width={40}
-      height={40}
-      className="h-9 w-9 shrink-0 rounded object-cover sm:h-10 sm:w-10"
-      decoding="async"
-    />
-  );
-
   const content = (
     <span
       className={`inline-flex max-w-full min-w-0 items-center gap-2 sm:gap-2.5 ${className}`}
     >
-      {mark}
+      <NkaMark />
       {showText && (
         <span className="min-w-0 overflow-hidden">
           <span
