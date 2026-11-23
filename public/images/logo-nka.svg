@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="NKA">
+  <rect width="128" height="128" rx="4" fill="#04122e"/>
+  <rect x="5" y="5" width="118" height="118" rx="2" fill="none" stroke="#8b7355" stroke-width="2.5"/>
+  <text
+    x="64"
+    y="72"
+    text-anchor="middle"
+    font-family="Libre Caslon Text, Georgia, 'Times New Roman', serif"
+    font-size="38"
+    font-weight="700"
+    letter-spacing="0.08em"
+    fill="#ffffff"
+  >NKA</text>
+</svg>

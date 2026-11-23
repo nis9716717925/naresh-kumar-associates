@@ -5,35 +5,31 @@ type NkaLogoProps = {
   href?: string;
   className?: string;
   showText?: boolean;
+  /** Use on dark backgrounds (footer) */
+  inverted?: boolean;
 };
 
 /**
- * Replaceable NKA mark for Naresh Kumar & Associates.
- * When the client supplies the final logo, place it at
- * /public/images/logo-nka.svg (or .png) and set useImageAsset to true.
- * Then update favicon.ico from the same asset. Do not invent a final logo.
+ * Brand mark for Naresh Kumar & Associates.
+ * Assets: /public/images/logo-nka.svg and logo-nka.jpg
+ * Replace with the client’s final approved artwork when supplied.
  */
-const useImageAsset = false;
-
 export function NkaLogo({
   href = "/",
   className = "",
   showText = true,
+  inverted = false,
 }: NkaLogoProps) {
-  const mark = useImageAsset ? (
+  const mark = (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/images/logo-nka.svg"
-      alt={`${siteConfig.practiceName} logo`}
-      className="h-9 w-auto sm:h-10"
+      alt=""
+      width={40}
+      height={40}
+      className="h-9 w-9 shrink-0 rounded object-cover sm:h-10 sm:w-10"
+      decoding="async"
     />
-  ) : (
-    <span
-      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded border border-secondary/50 bg-primary text-[0.7rem] font-semibold leading-none tracking-[0.12em] text-surface sm:h-10 sm:w-10 sm:text-xs"
-      aria-hidden
-    >
-      {siteConfig.logoInitials}
-    </span>
   );
 
   const content = (
@@ -43,10 +39,18 @@ export function NkaLogo({
       {mark}
       {showText && (
         <span className="min-w-0 overflow-hidden">
-          <span className="block truncate font-[family-name:var(--font-headline)] text-[0.95rem] leading-5 tracking-tight text-primary sm:text-[1.35rem] sm:leading-7">
+          <span
+            className={`block truncate font-[family-name:var(--font-headline)] text-[0.95rem] leading-5 tracking-tight sm:text-[1.35rem] sm:leading-7 ${
+              inverted ? "text-surface" : "text-primary"
+            }`}
+          >
             {siteConfig.practiceName}
           </span>
-          <span className="mt-0.5 block truncate type-label-sm uppercase tracking-widest text-secondary">
+          <span
+            className={`mt-0.5 block truncate type-label-sm uppercase tracking-widest ${
+              inverted ? "text-secondary-fixed" : "text-secondary"
+            }`}
+          >
             {siteConfig.professionalDescriptor}
           </span>
         </span>
@@ -59,6 +63,7 @@ export function NkaLogo({
     <Link
       href={href}
       className="inline-flex max-w-full min-w-0 items-center transition-opacity hover:opacity-90"
+      aria-label={siteConfig.practiceName}
     >
       {content}
     </Link>

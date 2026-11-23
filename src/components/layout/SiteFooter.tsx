@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { footerNav, isNavVisible, mainNav, siteConfig } from "@/lib/site";
+import { NkaLogo } from "@/components/brand/NkaLogo";
 import { MaterialIcon } from "@/components/ui/MaterialIcon";
 import { SocialLinks } from "@/components/content/SocialLinks";
 import { WhatsAppLink } from "@/components/content/WhatsAppLink";
@@ -13,11 +14,9 @@ export function SiteFooter() {
       <div className="container-site py-10 pb-12 sm:py-12 sm:pb-14 lg:py-14 lg:pb-16">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
-            <p className="type-headline-sm tracking-tight text-surface">
-              {siteConfig.practiceName}
-            </p>
-            <p className="mt-2 type-label-sm uppercase tracking-widest text-secondary-fixed/90">
-              {siteConfig.professionalDescriptor} · {siteConfig.logoInitials}
+            <NkaLogo inverted />
+            <p className="mt-3 type-label-sm uppercase tracking-widest text-secondary-fixed/90">
+              {siteConfig.practiceStructure} · {siteConfig.logoInitials}
             </p>
             <p className="mt-4 max-w-sm type-body-sm leading-relaxed text-inverse-on-surface/75">
               Informational portal for {siteConfig.advocateName},{" "}
